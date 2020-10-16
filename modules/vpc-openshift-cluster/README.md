@@ -45,7 +45,7 @@ module "vpc_openshift_cluster" {
 | vpc\_id                           | The ID of the VPC.                                      | string | n/a         | yes      |
 | worker\_pool\_flavor              | The flavor of the VPC worker node that you want to use. | string | n/a         | yes      |
 | worker\_zones                     | List of worker zones                                    | string | n/a         | yes      |
-| resource_group                    | Name of the resource group.                             | string | n/a         | no       |
+| resource\_group\_id               | ID of the resource group.                               | string | n/a         | no       |
 | worker\_nodes\_per\_zone          | Number of worker nodes.                                 | number | 1           | no       |
 | kube\_version                     | Kubernetes version                                      | string | n/a         | no       |
 | update\_all\_workers              | Kubernetes version of the worker nodes is updated       | bool   | false       | no       |
@@ -57,6 +57,6 @@ module "vpc_openshift_cluster" {
 | kms\_config                       | Use to attach a Key Protect instance to a cluster.      | list   | n/a         | no       |
 | tags                              | List of tags to attach                                  | list   | n/a         | no       |
 | force\_delete\_storage            | Set to delete persistent storage of cluster             | bool   | false       | no       |
-| entitlement                       | OpenShift entitlement avoids the OCP licence charges  | string | n/a     | no       |
+| entitlement                       | OpenShift entitlement avoids the OCP licence charges    | string | n/a         | no       |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

@@ -45,7 +45,7 @@ module "vpc_kubernetes_cluster" {
 | vpc\_id                           | The ID of the VPC.                                      | string | n/a         | yes      |
 | worker\_pool\_flavor              | The flavor of the VPC worker node that you want to use. | string | n/a         | yes      |
 | worker\_zones                     | List of worker zones                                    | string | n/a         | yes      |
-| resource_group                    | Name of the resource group.                             | string | n/a         | no       |
+| resource\_group\_id               | ID of the resource group.                               | string | n/a         | no       |
 | worker\_nodes\_per\_zone          | Number of worker nodes.                                 | number | 1           | no       |
 | kube\_version                     | Kubernetes version                                      | string | n/a         | no       |
 | update\_all\_workers              | Kubernetes version of the worker nodes is updated       | bool   | false       | no       |

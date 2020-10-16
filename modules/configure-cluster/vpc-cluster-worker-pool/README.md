@@ -36,7 +36,7 @@ module "vpc_cluster_worker_pool" {
 | flavor                            | The machine type for your worker node.                | string | n/a     | yes      |
 | worker\_pool\_name                | Name of the worker pool                               | string | n/a     | yes      |
 | worker\_zones                     | List of zones to attach to a pool.                    | string | n/a     | yes      |
-| resource\_group                   |  Name of the resource group.                          | string | n/a     | no       |
+| resource\_group\_id               | ID of the resource group.                             | string | n/a     | no       |
 | labels                            | labels to add to the worker nodes in the worker pool  | map    | n/a     | no       |
 | entitlement                       | OpenShift entitlement avoids the OCP licence charges  | string | n/a     | no       |
 
