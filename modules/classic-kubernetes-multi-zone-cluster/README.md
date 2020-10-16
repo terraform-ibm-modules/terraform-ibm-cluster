@@ -49,7 +49,7 @@ module "classic_kubernetes_multi_zone_cluster" {
 | metro                             | The zone where the worker node is created.            | string | n/a     | yes      |
 | hardware                          | The level of hardware isolation for your worker node. | string | n/a     | yes      |
 | worker\_zones                     | List of zones to attach to a cluster.                 | list   | n/a     | yes      |
-| resource\_group                   |  Name of the resource group.                          | string | n/a     | no       |
+| resource\_group\_id               | ID of the resource group.                             | string | n/a     | no       |
 | worker\_nodes\_per\_zone          | Number of workser nodes.                              | number | 1       | no       |
 | worker\_pool\_flavor              | The machine type for your worker node.                | string | n/a     | no       |
 | public\_vlan\_id                  | The ID of the public VLAN                             | string | n/a     | no       |

@@ -47,7 +47,7 @@ module "classic_openshift_single_zone_cluster" {
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
 | cluster\_name                     | Name of the cluster                                   | string | n/a     | yes      |
 | worker\_zone                      | The zone where the worker node is created.            | string | n/a     | yes      |
-| resource\_group                   |   Name of the resource group.                         | string | n/a     | no       |
+| resource\_group\_id               | ID of the resource group.                             | string | n/a     | no       |
 | worker\_nodes\_per\_zone          | Number of workser nodes.                              | number | n/a     | no       |
 | hardware                          | The level of hardware isolation for your worker node. | string | n/a     | no       |
 | worker_pool_flavor                | The machine type for your worker node.                | string | n/a     | no       |

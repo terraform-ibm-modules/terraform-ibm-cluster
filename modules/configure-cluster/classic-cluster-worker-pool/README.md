@@ -39,7 +39,7 @@ module "classic_cluster_worker_pool" {
 | worker\_pool\_name                | Name of the worker pool                               | string | n/a     | yes      |
 | encrypt\_local\_disk              | Set this to encrypt th elocal disk                    | string | n/a     | no       |
 | worker\_zones                     | List of zones to attach to a pool.                    | string | n/a     | yes      |
-| resource\_group                   |  Name of the resource group.                          | string | n/a     | no       |
+| resource\_group\_id               | ID of the resource group.                             | string | n/a     | no       |
 | wait_till_albs                    | Use to avoid long wait cluster creation time          | bool   | n/a     | no       |
 | labels                            | labels to add to the worker nodes in the worker pool  | map    | n/a     | no       |
 
