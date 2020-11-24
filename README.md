@@ -34,18 +34,30 @@ data "ibm_resource_group" "test" {
 }
 
 module "classic_kubernetes_single_zone_cluster" {
-  source = "../../modules/classic-kubernetes-single-zone-cluster"
+  source  = "terraform-ibm-modules/cluster/ibm//modules/classic-kubernetes-single-zone"
 
   cluster_name                    = var.cluster_name
-  resource_group_id               = data.ibm_resource_group.test.id
   worker_zone                     = var.worker_zone
-  worker_nodes_per_zone           = var.worker_nodes_per_zone
-  worker_pool_flavor              = var.worker_pool_flavor
-  public_vlan                     = var.public_vlan_id
-  private_vlan                    = var.private_vlan_id
-  hardware                        = var.hardware
-  master_service_public_endpoint  = var.master_service_public_endpoint
-  master_service_private_endpoint = var.master_service_private_endpoint
+  hardware                        = var.hardware 
+  resource_group_id               = data.ibm_resource_group.test.id
+  worker_nodes_per_zone           = (var.worker_nodes_per_zone != null ? var.worker_nodes_per_zone : 1)
+  worker_pool_flavor              = var.worker_pool_flavor != null ? var.worker_pool_flavor : null
+  public_vlan                     = (var.public_vlan_id != null ? var.public_vlan_id : null)
+  private_vlan                    = (var.private_vlan_id != null ? var.private_vlan_id : null)
+  master_service_public_endpoint  = (var.master_service_public_endpoint != null ? var.master_service_public_endpoint : null)
+  master_service_private_endpoint = (var.master_service_private_endpoint != null ? var.master_service_private_endpoint : null)
+  force_delete_storage            = (var.force_delete_storage != null ? var.force_delete_storage : false)
+  gateway_enabled                 = (var.gateway_enabled != null ? var.gateway_enabled : false)
+  encrypt_local_disk              = (var.encrypt_local_disk != null ? var.encrypt_local_disk : true)
+  no_subnet                       = (var.no_subnet != null ? var.no_subnet : false)
+  subnet_id                       = var.subnet_id != null ? var.subnet_id : []
+  update_all_workers              = (var.update_all_workers != null ? var.update_all_workers : false)
+  tags                            = (var.tags != null ? var.tags : [])
+  kube_version                    = (var.kube_version != null ? var.kube_version : null)
+  kms_config                      = var.kms_config != null ? var.kms_config :[]
+  workers_info                    = var.workers_info != null ? var.workers_info : []
+  webhook                         = var.webhook != null ? var.webhook : []
+
 }
 
 ```
@@ -62,16 +74,26 @@ data "ibm_resource_group" "test" {
 }
 
 module "vpc_openshift_cluster" {
-  source = "../../modules/vpc-openshift-cluster"
+  source  = "terraform-ibm-modules/cluster/ibm//modules/vpc-openshift"
 
   cluster_name                    = var.cluster_name
-  resource_group_id               = data.ibm_resource_group.test.id
   vpc_id                          = var.vpc_id
-  cos_instance_crn                = var.cos_instance_crn
   worker_pool_flavor              = var.worker_pool_flavor
-  worker_nodes_per_zone           = var.worker_nodes_per_zone
-  sunet_id                        = var.sunet_id
-  zone_name                       = var.zone_name
+  worker_zones                    = var.worker_zones
+  worker_nodes_per_zone           = (var.worker_nodes_per_zone != null ? var.worker_nodes_per_zone : 1)
+  resource_group_id               = data.ibm_resource_group.test.id 
+  kube_version                    = (var.kube_version != null ? var.kube_version : null)
+  update_all_workers              = (var.update_all_workers != null ? var.update_all_workers : false)
+  service_subnet                  = (var.service_subnet != null ?  var.service_subnet : "172.21.0.0/16")
+  pod_subnet                      = (var.pod_subnet != null ? var.pod_subnet : "172.30.0.0/16")
+  worker_labels                   = (var.worker_labels != null ? var.worker_labels : null)
+  wait_till                       = (var.wait_till != null ? var.wait_till  : "ingressReady")
+  disable_public_service_endpoint = (var.disable_public_service_endpoint != null ? var.disable_public_service_endpoint : true)
+  tags                            = (var.tags != null ? var.tags : [])
+  cos_instance_crn                = (var.cos_instance_crn != null ? var.cos_instance_crn : null)
+  force_delete_storage            = (var.force_delete_storage != null ? var.force_delete_storage : false)
+  kms_config                      = (var.kms_config != null ? var.kms_config : [])
+  entitlement                     = (var.entitlement != null ? var.entitlement : null)
 }
 ```
 
