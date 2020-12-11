@@ -47,35 +47,83 @@ If we want to make use of a particular version of module, then set the "version"
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs 
 
+| Name                              | Description                                                    | Type   | Default | Required |
+|-----------------------------------|----------------------------------------------------------------|--------|---------|----------|
+| cluster\_name                     | Name of the cluster                                            | string | n/a     | yes      |
+| metro                             | The zone where the worker node is created.                     | string | n/a     | yes      |
+| hardware                          | The level of hardware isolation for your worker node.          | string | n/a     | yes      |
+| worker\_zones                     | Map(Map(zones)) where each zone has its public & private VLANs | map    | n/a     | yes      |
+| resource\_group                   |  Name of the resource group.                                   | string | n/a     | no       |
+| worker\_nodes\_per\_zone          | Number of workser nodes.                                       | number | 1       | no       |
+| worker\_pool\_flavor              | The machine type for your worker node.                         | string | n/a     | no       |
+| public\_vlan\_id                  | The ID of the public VLAN                                      | string | n/a     | no       |
+| private\_vlan\_id                 | The ID of the private VLAN.                                    | string | n/a     | no       |
+| master\_service\_public\_endpoint | Used to enable the public service endpoint.                    | string | n/a     | no       |
+| master\_service\_private\_endpoint| Used to enable the private service endpoint.                   | string | n/a     | no       |
+| force\_delete\_storage            | Set to delete persistent storage of cluster                    | bool   | false   | no       |
+| gateway\_enabled                  | Set to to  create a gateway-enabled cluster.                   | bool   | false   | no       |
+| encrypt\_local\_disk              | On set, worker node disks are encrypted with AES 256           | bool   | true    | no       |
+| no\_subnet                        | On set, no subnet is created during cluster creation           | bool   | false   | no       |
+| subnet\_id                        | List of subnets                                                | list   | n/a     | no       |
+| update\_all\_workers              | Kubernetes version of the worker nodes is updated              | bool   | false   | no       |
+| tags                              | List of tags to attach                                         | list   | n/a     | no       |
+| kube\_version                     | Kubernetes version                                             | string | n/a     | no       |
+| kms\_config                       | Use to attach a Key Protect instance to a cluster.             | list   | n/a     | no       |
+| workers\_info                     | Array of workers info                                          | list   | n/a     | no       |
+| webhook                           | List of webhooks                                               | list   | n/a     | no       |
+| wait_till_albs                    | Use to avoid long wait cluster creation time                   | bool   | n/a     | no       |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## worker_zones Inputs 
+
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| cluster\_name                     | Name of the cluster                                   | string | n/a     | yes      |
-| metro                             | The zone where the worker node is created.            | string | n/a     | yes      |
-| hardware                          | The level of hardware isolation for your worker node. | string | n/a     | yes      |
-| worker\_zones                     | List of zones to attach to a cluster.                 | map    | n/a     | yes      |
-| resource\_group                   |  Name of the resource group.                          | string | n/a     | no       |
-| worker\_nodes\_per\_zone          | Number of workser nodes.                              | number | 1       | no       |
-| worker\_pool\_flavor              | The machine type for your worker node.                | string | n/a     | no       |
-| public\_vlan\_id                  | The ID of the public VLAN                             | string | n/a     | no       |
-| private\_vlan\_id                 | The ID of the private VLAN.                           | string | n/a     | no       |
-| master\_service\_public\_endpoint | Used to enable the public service endpoint.           | string | n/a     | no       |
-| master\_service\_private\_endpoint| Used to enable the private service endpoint.          | string | n/a     | no       |
-| force\_delete\_storage            | Set to delete persistent storage of cluster           | bool   | false   | no       |
-| gateway\_enabled                  | Set to to  create a gateway-enabled cluster.          | bool   | false   | no       |
-| encrypt\_local\_disk              | On set, worker node disks are encrypted with AES 256  | bool   | true    | no       |
-| no\_subnet                        | On set, no subnet is created during cluster creation  | bool   | false   | no       |
-| subnet\_id                        | List of subnets                                       | list   | n/a     | no       |
-| update\_all\_workers              | Kubernetes version of the worker nodes is updated     | bool   | false   | no       |
-| tags                              | List of tags to attach                                | list   | n/a     | no       |
-| kube\_version                     | Kubernetes version                                    | string | n/a     | no       |
-| kms\_config                       | Use to attach a Key Protect instance to a cluster.    | list   | n/a     | no       |
-| workers\_info                     | Array of workers info                                 | list   | n/a     | no       |
-| webhook                           | List of webhooks                                      | list   | n/a     | no       |
-| wait_till_albs                    | Use to avoid long wait cluster creation time          | bool   | n/a     | no       |
+| public_vlan                       | ID of the public  VLAN that we want to use for zone.  | string | n/a     | no       |
+| private_vlan                      | ID of the private VLAN that we want to use for zone.  | string | n/a     | no       |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## kms_config Inputs 
+
+| Name                              | Description                                           | Type   | Default | Required |
+|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+|  instance_id                      | GUID of the Key Protect instance.                     | string | n/a     | no       |
+|  crk_id                           | ID of the customer root key.                          | string | n/a     | no       |
+|  private_endpoint                 | Set to true to configure KMS private service endpoint.| bool   | n/a     | no       |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## workers_info Inputs 
+
+| Name                              | Description                                           | Type   | Default | Required |
+|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+|   id                              | ID of the worker node that you want to update.        | string | n/a     | no       |
+|   version                         | Kubernetes version that to update your worker nodes to| string | n/a     | no       |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## webhook Inputs 
+
+| Name                              | Description                                           | Type   | Default | Required |
+|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+|   level                           | Notification level, such as Normal or Warning         | string | n/a     | yes      |
+|   type                            | webhook type. Currently, Slack is supported           | string | n/a     | yes      |
+|   url                             | URL for the webhook                                   | string | n/a     | yes      |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 NOTE: We can configure the list of zones, kms_config, workers_info and webhook to be attached to a cluster by entering respective details in input.tfvars.
+
+Worker zones is a map(map(zones)), where key will be zone_name and value will be map containing respective public & private VLANs. 
 
 ## Usage
 

@@ -20,16 +20,22 @@ worker_zones = {
 ******************************************************/
 
 worker_zones = {
-    <zone_name> = {
-      subnet_id = "<subnetID>"
+    us-south-1 = {
+      subnet_id = "0717-0d4f6c2d-8ec0-422f-a9ea-a7b773887f8c"
     }
 }
 
+
+
 kms_config = [{
-       instance_id      = "<kms_instance_id>"
-       crk_id           = "<root_key_id>"
-       private_endpoint = <bool_value>
+       instance_id      = "12043812-757f-4e1e-8436-6af3245e6a69"
+       crk_id           = "0792853c-b9f9-4b35-9d9e-ffceab51d3c1"
+       private_endpoint = false
      },
 ]
 
-tags = ["<Tag-1>","<Tag-2>"]
+
+
+
+tags = ["T1","T2"]
+
