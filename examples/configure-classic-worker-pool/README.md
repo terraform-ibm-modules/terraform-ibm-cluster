@@ -42,9 +42,22 @@ If we want to make use of a particular version of module, then set the "version"
 | worker\_pool\_name                | Name of the worker pool                               | string | n/a     | yes      |
 | encrypt\_local\_disk              | Set this to encrypt th elocal disk                    | string | n/a     | no       |
 | worker\_zones                     | List of zones to attach to a pool.                    | map    | n/a     | yes      |
+| worker\_zones.public_vlan         | ID of the public  VLAN that we want to use for zone.  | string | n/a     | no       |
+| worker\_zones.private_vlan        | ID of the private VLAN that we want to use for zone.  | string | n/a     | no       |
 | resource\_group                   |  Name of the resource group.                          | string | n/a     | no       |
 | wait_till_albs                    | Use to avoid long wait cluster creation time          | bool   | n/a     | no       |
 | labels                            | labels to add to the worker nodes in the worker pool  | map    | n/a     | no       |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## worker_zones Inputs 
+
+| Name                              | Description                                           | Type   | Default | Required |
+|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+| public_vlan                       | ID of the public  VLAN that we want to use for zone.  | string | n/a     | no       |
+| private_vlan                      | ID of the private VLAN that we want to use for zone.  | string | n/a     | no       |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

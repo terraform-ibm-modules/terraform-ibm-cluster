@@ -21,14 +21,25 @@ If we want to make use of a particular version of module, then set the "version"
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
+| Name                              | Description                                                           | Type   | Default | Required|
+|-----------------------------------|---------------------------------------------------------------------- |--------|---------|---------|
+| cluster\_name                     | Name of the cluster                                                   | string | n/a     | yes     |
+| add\_ons                          | map(map(add_ons)), key is add_on name and value is respective version.| string | n/a     | yes     |
+| add\_ons.version                  | The add-on version.                                                   | string | n/a     | no      |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## add_ons Inputs
+
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| cluster\_name                     | Name of the cluster                                   | string | n/a     | yes      |
-| add\_ons                          | List of add_ons to attach to a cluster.               | string | n/a     | yes      |
+| version                           | The add-on version.                                   | string | n/a     | no       |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 NOTE: We can configure the list of add-ons to be attached to a cluster by entering add-on details in input.tfvars.
+
 
 ## Usage
 

@@ -69,6 +69,42 @@ If we want to make use of a particular version of module, then set the "version"
 | workers\_info                     | Array of workers info                                 | list   | n/a     | no       |
 | webhook                           | List of webhooks                                      | list   | n/a     | no       |
 
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## kms_config Inputs 
+
+| Name                              | Description                                           | Type   | Default | Required |
+|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+|  instance_id                      | GUID of the Key Protect instance.                     | string | n/a     | no       |
+|  crk_id                           | ID of the customer root key.                          | string | n/a     | no       |
+|  private_endpoint                 | Set to true to configure KMS private service endpoint.| bool   | n/a     | no       |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## workers_info Inputs 
+
+| Name                              | Description                                           | Type   | Default | Required |
+|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+|   id                              | ID of the worker node that you want to update.        | string | n/a     | no       |
+|   version                         | Kubernetes version that to update your worker nodes to| string | n/a     | no       |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## webhook Inputs 
+
+| Name                              | Description                                           | Type   | Default | Required |
+|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+|   level                           | Notification level, such as Normal or Warning         | string | n/a     | yes      |
+|   type                            | webhook type. Currently, Slack is supported           | string | n/a     | yes      |
+|   url                             | URL for the webhook                                   | string | n/a     | yes      |
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Note

@@ -47,7 +47,7 @@ If we want to make use of a particular version of module, then set the "version"
 | cluster\_name                     | Name of the cluster                                     | string | n/a         | yes      |
 | vpc\_id                           | The ID of the VPC.                                      | string | n/a         | yes      |
 | worker\_pool\_flavor              | The flavor of the VPC worker node that you want to use. | string | n/a         | yes      |
-| worker\_zones                     | List of worker zones                                    | map    | n/a         | yes      |
+| worker\_zones                     | Map(Map(zones)) where each zone has its subnet id       | map    | n/a         | yes      |
 | resource_group                    | Name of the resource group.                             | string | n/a         | no       |
 | worker\_nodes\_per\_zone          | Number of worker nodes.                                 | number | 1           | no       |
 | kube\_version                     | Kubernetes version                                      | string | n/a         | no       |
@@ -64,6 +64,31 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## worker_zones Inputs 
+
+| Name                              | Description                                           | Type   | Default | Required |
+|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+| subnet_id                         | Uniue identifier of subnet                            | string | n/a     | no       |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## kms_config Inputs 
+
+| Name                              | Description                                           | Type   | Default | Required |
+|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+|  instance_id                      | GUID of the Key Protect instance.                     | string | n/a     | no       |
+|  crk_id                           | ID of the customer root key.                          | string | n/a     | no       |
+|  private_endpoint                 | Set to true to configure KMS private service endpoint.| bool   | n/a     | no       |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Note
 
 All optional fields are given value `null` in varaible.tf file. User can configure the same by overwriting with appropriate values.
+
+Worker zones is a map(map(zones)), where key will be zone_name and value will be map containing respective subnet_id. 
+
