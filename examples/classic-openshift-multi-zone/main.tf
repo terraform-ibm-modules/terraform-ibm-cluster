@@ -12,7 +12,7 @@ data "ibm_resource_group" "test" {
 
 module "classic_openshift_multi_zone_cluster" {
   source  = "terraform-ibm-modules/cluster/ibm//modules/classic-openshift-multi-zone"
-
+  
   cluster_name                    = var.cluster_name
   metro                           = var.metro
   worker_zones                    = var.worker_zones

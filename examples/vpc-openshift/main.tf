@@ -13,7 +13,7 @@ data "ibm_resource_group" "test" {
 
 module "vpc_openshift_cluster" {
   source  = "terraform-ibm-modules/cluster/ibm//modules/vpc-openshift"
-
+  
   cluster_name                    = var.cluster_name
   vpc_id                          = var.vpc_id
   worker_pool_flavor              = var.worker_pool_flavor
