@@ -12,7 +12,7 @@ data "ibm_resource_group" "test" {
 
 module "classic_openshift_single_zone_cluster" {
   source  = "terraform-ibm-modules/cluster/ibm//modules/classic-openshift-single-zone"
-
+  
   cluster_name                    = var.cluster_name
   worker_zone                     = var.worker_zone
   hardware                        = var.hardware 

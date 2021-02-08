@@ -19,7 +19,7 @@ data "ibm_resource_instance" "sysdig_instance" {
 
 module "cluster_sysdig_attach" {
   source  = "terraform-ibm-modules/cluster/ibm//modules/configure-sysdig-monitor"
-
+  
   cluster_name                    = var.cluster_name
   sysdig_instance_id              = data.ibm_resource_instance.sysdig_instance.guid
 }

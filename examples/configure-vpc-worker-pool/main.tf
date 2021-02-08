@@ -12,7 +12,7 @@ data "ibm_resource_group" "test" {
 
 module "vpc_cluster_worker_pool" {
   source  = "terraform-ibm-modules/cluster/ibm//modules/configure-vpc-worker-pool"
-
+  
   cluster_name                    = var.cluster_name
   worker_pool_name                = var.worker_pool_name
   worker_nodes_per_zone           = var.worker_nodes_per_zone
