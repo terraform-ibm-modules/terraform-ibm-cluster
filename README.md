@@ -1,18 +1,17 @@
 # IBM Clusters Terraform Module
 
 This is a collection of modules that make it easier to provision a cluster on IBM Cloud Platform:
-* [classic-kubernetes-multi-zone-cluster](modules/classic-kubernetes-multi-zone-cluster)
-* [classic-kubernetes-single-zone-cluster](./modules/classic-kubernetes-single-zone-cluster)
-* [classic-openshift-multi-zone-cluster](./modules/classic-openshift-multi-zone-cluster)
-* [classic-openshift-single-zone-cluster](./modules/classic-openshift-single-zone-cluster)
-* [vpc-kubernetes-cluster](./modules/vpc-kubernetes-cluster)
-* [vpc-openshift-cluster](./modules/vpc-openshift-cluster)
-* [classic-free-cluster](./modules/classic-free-cluster)
-
+* [classic-kubernetes-multi-zone-cluster](modules/classic-kubernetes-multi-zone)
+* [classic-kubernetes-single-zone-cluster](./modules/classic-kubernetes-single-zone)
+* [classic-openshift-multi-zone-cluster](./modules/classic-openshift-multi-zone)
+* [classic-openshift-single-zone-cluster](./modules/classic-openshift-single-zone)
+* [vpc-kubernetes-cluster](./modules/vpc-kubernetes)
+* [vpc-openshift-cluster](./modules/vpc-openshift)
+* [classic-free-cluster](./modules/classic-free)
 And it also has the following modules to configure a already provisioned cluster in IBM Cloud Platform:
-* [classic-cluster-worker-pool](./modules/configure-cluster/classic-cluster-worker-pool)
-* [vpc-cluster-worker-pool](./modules/configure-cluster/vpc-cluster-worker-pool)
-* [add-ons](./modules/configure-cluster/add-ons)
+* [classic-cluster-worker-pool](./modules/configure-classic-worker-pool)
+* [vpc-cluster-worker-pool](./modules/configure-vpc-worker-pool)
+* [add-ons](./modules/configure-addons)
 
 ## Compatibility
 
