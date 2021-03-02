@@ -4,9 +4,6 @@ This module is used to to provision an vpc openshift cluster on IBM Cloud Infras
 
 ## Example Usage
 ```
-provider "ibm" {
-  generation = var.generation
-}
 
 data "ibm_resource_group" "test" {
   name = var.resource_group

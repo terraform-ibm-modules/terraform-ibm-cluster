@@ -34,12 +34,6 @@ variable "resource_group" {
     type        = string
 }
 
-
-variable "generation" {
-    description = "Enter the VPC gen type ( 1 for Gen-1 & 2 for Gen-2 )"
-    type        = number
-}
-
 variable "update_all_workers" {
     description = "set to true, the Kubernetes version of the worker nodes is updated along with the Kubernetes version of the cluster that you specify in kube_version."
     type        = bool
@@ -103,7 +97,7 @@ variable "force_delete_storage" {
 variable "kms_config" {
   type = list(map(string))
   description = "key protect configurations"
-  default     = null
+  default     = []
 }
 
 

@@ -15,7 +15,7 @@ variable "vpc_id" {
 
 variable "worker_pool_flavor" {
     description = " The flavor of the VPC worker node that you want to use."
-    type        = string
+    type        = string 
 }
 
 variable "worker_nodes_per_zone"{
@@ -32,12 +32,6 @@ variable "worker_zones" {
 variable "resource_group" {
     description = "The name of resource_group"
     type        = string
-}
-
-
-variable "generation" {
-    description = "Enter the VPC gen type ( 1 for Gen-1 & 2 for Gen-2 )"
-    type        = number
 }
 
 variable "update_all_workers" {
@@ -103,7 +97,7 @@ variable "force_delete_storage" {
 variable "kms_config" {
   type = list(map(string))
   description = "key protect configurations"
-  default = null
+  default = []
 }
 
 variable "entitlement" {

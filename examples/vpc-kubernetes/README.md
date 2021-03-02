@@ -4,10 +4,6 @@ This module is used to to provision an vpc cluster on IBM Cloud Infrastructure -
 
 ## Example Usage
 ```
-provider "ibm" {
-  generation = var.generation
-}
-
 data "ibm_resource_group" "test" {
   name = var.resource_group
 }
