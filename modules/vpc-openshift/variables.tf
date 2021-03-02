@@ -5,7 +5,7 @@
 
 variable "cluster_name" {
     description = "Name of the cluster"
-    type        = string
+    type        = string    
 }
 
 variable "vpc_id" {
@@ -27,13 +27,13 @@ variable "kube_version" {
 variable "update_all_workers" {
     description = "set to true, the Kubernetes version of the worker nodes is updated along with the Kubernetes version of the cluster that you specify in kube_version."
     type        = bool
-    default     = null 
+    default     = false 
 }
 
 variable "service_subnet" {
     description = "Specify a custom subnet CIDR to provide private IP addresses for services."
     type        = string
-    default     = null 
+    default     = null
 }
 
 variable "pod_subnet" {
@@ -63,13 +63,13 @@ variable "resource_group_id" {
 variable "wait_till" {
     description = "specify the stage when Terraform to mark the cluster creation as completed."
     type        = string
-    default     = null 
+    default     = "ingressReady" 
 }
 
 variable "disable_public_service_endpoint" {
     description = "Boolean value true if Public service endpoint to be disabled."
     type        = bool
-    default     = null 
+    default     = false 
 }
 
 variable "tags" {
@@ -87,7 +87,7 @@ variable "cos_instance_crn" {
 variable "force_delete_storage" {
     description = "force the removal of persistent storage associated with the cluster during cluster deletion."
     type        = bool
-    default     = null 
+    default     = false 
 }
 
 variable "worker_zones" {
@@ -99,6 +99,7 @@ variable "kms_config" {
   type = list(map(string))
   default = []
 }
+
 
 variable "entitlement" {
     description = "Enable openshift entitlement during cluster creation ."
