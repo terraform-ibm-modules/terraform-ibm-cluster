@@ -20,10 +20,12 @@ resource "ibm_container_vpc_cluster" "cluster" {
         force_delete_storage            = (var.force_delete_storage != null ? var.force_delete_storage : false)
         
 
-        for_each          = var.worker_zones
-        zones {
-               name              = each.key
-               subnet_id         = each.value["subnet_id"]
+        dynamic zones {
+            for_each = (var.worker_zones != null ? var.worker_zones : {} ) 
+            content {
+                name             = zones.key
+                subnet_id        = zones.value.subnet_id
+            }
         }
 
         dynamic kms_config {

@@ -36,5 +36,4 @@ kms_config = [{
 ]
 
 
-
 tags = ["T1","T2"]
