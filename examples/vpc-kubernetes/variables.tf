@@ -15,7 +15,7 @@ variable "vpc_id" {
 
 variable "worker_pool_flavor" {
     description = " The flavor of the VPC worker node that you want to use."
-    type        = string
+    type        = string 
 }
 
 variable "worker_nodes_per_zone"{
@@ -24,15 +24,22 @@ variable "worker_nodes_per_zone"{
     default     = null
 }
 
+variable "resource_group" {
+    description = "The name of resource_group"
+    type        = string
+}
+
+variable "wait_till" {
+    description = "specify the stage when Terraform to mark the cluster creation as completed."
+    type        = string
+    default = null
+}
+
 variable "worker_zones" {
     type = map
     description = "List of worker zones to attach"
 }
 
-variable "resource_group" {
-    description = "The name of resource_group"
-    type        = string
-}
 
 variable "update_all_workers" {
     description = "set to true, the Kubernetes version of the worker nodes is updated along with the Kubernetes version of the cluster that you specify in kube_version."
@@ -61,12 +68,6 @@ variable "pod_subnet" {
 variable "worker_labels"{
     description = "Labels on all the workers in the default worker pool."
     type        = map
-    default     = null
-}
-
-variable "wait_till" {
-    description = "specify the stage when Terraform to mark the cluster creation as completed."
-    type        = string
     default     = null
 }
 
