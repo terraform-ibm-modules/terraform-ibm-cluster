@@ -16,17 +16,18 @@ resource "ibm_container_cluster" "cluster" {
   private_service_endpoint = var.master_service_private_endpoint
   disk_encryption          = var.encrypt_local_disk
   force_delete_storage     = var.force_delete_storage
-  gateway_enabled          = var.gateway_enabled
+  gateway_enabled          = (var.gateway_enabled != null ? var.gateway_enabled : false)
   kube_version             = var.kube_version
   no_subnet                = var.no_subnet
   update_all_workers       = var.update_all_workers
   tags                     = var.tags
+  subnet_id                = (var.subnet_id != null ? var.subnet_id : null)
 
   dynamic workers_info {
     for_each = var.workers_info
     content {
-      id           = (workers_info.value.id != "" ? workers_info.value.id : null)  
-      version      = (workers_info.value.version != "" ? workers_info.value.version : null)  
+      id      = (workers_info.value.id != "" ? workers_info.value.id : null)
+      version = (workers_info.value.version != "" ? workers_info.value.version : null)
     }
   }
 
@@ -35,7 +36,7 @@ resource "ibm_container_cluster" "cluster" {
     content {
       instance_id      = kms_config.value.instance_id
       crk_id           = kms_config.value.crk_id
-      private_endpoint = (kms_config.value.private_endpoint ? true: false)
+      private_endpoint = (kms_config.value.private_endpoint ? true : false)
     }
   }
 
@@ -45,6 +46,14 @@ resource "ibm_container_cluster" "cluster" {
       level = webhook.value.level
       type  = webhook.value.type
       url   = webhook.value.url
+    }
+  }
+  dynamic timeouts {
+    for_each = var.timeouts
+    content {
+      create = (timeouts.value.create != null ? timeouts.value.create : null)
+      update = (timeouts.value.update != null ? timeouts.value.update : null)
+      delete = (timeouts.value.delete != null ? timeouts.value.delete : null)
     }
   }
 }
