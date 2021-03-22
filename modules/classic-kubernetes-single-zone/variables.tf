@@ -63,6 +63,7 @@ variable "force_delete_storage" {
 variable "gateway_enabled" {
     description = "Set to true if you want to automatically create a gateway-enabled cluster."
     type        = bool
+    default     = null 
 }
 
 variable "master_service_private_endpoint" {
@@ -104,6 +105,7 @@ variable "tags" {
 variable "subnet_id" {
     description = "ID of an existing subnet that you want to use for your worker nodes."
     type        = list
+    default     = null 
 }
 
 variable "kms_config" {
