@@ -17,41 +17,6 @@ worker_zones = {
     }
 }
 
-
-worker_zones = {
-    dal12 = {
-      public_vlan = "2949448"
-      private_vlan = "2949450"
-    }
-}
-
-kms_config = [{
-       instance_id      = "12043812-757f-4e1e-8436-6af3245e6a69"
-       crk_id           = "0792853c-b9f9-4b35-9d9e-ffceab51d3c1"
-       private_endpoint = false
-     },
-]
-
-
-workers_info = [{
-       id           = "kube-btgbsard0ss76j8snblg-c2-default-000001a7"
-       version      = "4.3.23_openshift"
-   },
-]
-
-webhook = [{
-       level = "Normal"
-       type  = "slack"
-       url   = "https://hooks.slack.com/services/yt7rebjhgh2r4rd44fjk"
-   },
-]
-
-tags = ["T1","T2"]
-
-subnet_id = ["1147081"]
-
-******************************************************/
-
 worker_zones = {
     dal12 = {
       public_vlan = "<public_vlan_id>"
@@ -84,3 +49,38 @@ tags = ["<Tag-1>","<Tag-2>"]
 
 subnet_id = ["<subnetID>"]
 
+
+
+******************************************************/
+
+worker_zones = {
+    dal12 = {
+      public_vlan = "2949448"
+      private_vlan = "2949450"
+    }
+}
+
+kms_config = [{
+       instance_id      = "12043812-757f-4e1e-8436-6af3245e6a69"
+       crk_id           = "0792853c-b9f9-4b35-9d9e-ffceab51d3c1"
+       private_endpoint = false
+     },
+]
+
+
+workers_info = [{
+       id           = "kube-btgbsard0ss76j8snblg-c2-default-000001a7"
+       version      = "4.3.23_openshift"
+   },
+]
+
+webhook = [{
+       level = "Normal"
+       type  = "slack"
+       url   = "https://hooks.slack.com/services/yt7rebjhgh2r4rd44fjk"
+   },
+]
+
+tags = ["T1","T2"]
+
+subnet_id = ["1147081"]

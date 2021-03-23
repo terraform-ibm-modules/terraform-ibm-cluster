@@ -29,3 +29,7 @@ If we want to make use of a particular version of module, then set the "version"
 | hardware                          | The level of hardware isolation for your worker node. | string | n/a     | yes      |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## Usage
+
+terraform apply 

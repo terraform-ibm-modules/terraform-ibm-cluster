@@ -111,3 +111,7 @@ If we want to make use of a particular version of module, then set the "version"
 ## Note
 
 All optional fields are given value `null` in varaible.tf file. User can configure the same by overwriting with appropriate values.
+
+## Usage
+
+terraform apply -var-file="input.tfvars"

@@ -87,3 +87,6 @@ All optional fields are given value `null` in varaible.tf file. User can configu
 
 Worker zones is a map(map(zones)), where key will be zone_name and value will be map containing respective subnet_id. 
 
+## Usage
+
+terraform apply -var-file="input.tfvars"

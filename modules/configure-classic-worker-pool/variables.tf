@@ -25,14 +25,14 @@ variable "worker_nodes"{
 variable "hardware" {
     description = "The level of hardware isolation for your worker node."
     type        = string
-    default     = null 
+    default     = "shared" 
 }
 
 
 variable "encrypt_local_disk" {
     description = "Set this to true to enable disk encryption"
     type        = bool
-    default     = null 
+    default     = true 
 }
 
 variable "worker_zones" {
@@ -54,7 +54,7 @@ variable "resource_group_id" {
 variable "wait_till_albs" {
     description = "specify the stage when you want Terraform to mark the zone attachment complete."
     type        = bool
-    default     = null 
+    default     = false 
 }
 
 
