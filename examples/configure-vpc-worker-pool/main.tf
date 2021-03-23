@@ -20,6 +20,6 @@ module "vpc_cluster_worker_pool" {
   resource_group_id               = data.ibm_resource_group.test.id
   virtual_private_cloud           = var.virtual_private_cloud
   worker_zones                    = var.worker_zones
-  labels                          = (var.labels != null ? var.labels : null )
-  entitlement                     = var.entitlement != null ? var.entitlement : null
+  labels                          = var.labels 
+  entitlement                     = var.entitlement
 }

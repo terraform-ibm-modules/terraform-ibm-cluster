@@ -21,11 +21,13 @@ variable "worker_pool_flavor" {
 variable "public_vlan_id" {
     description = "The ID of the public VLAN that you want to use for your worker nodes."
     type        = string
+    default     = null
 }
 
 variable "private_vlan_id" {
     description = "The ID of the private VLAN that you want to use for your worker nodes."
     type        = string
+    default     = null
 }
 
 variable "resource_group" {

@@ -7,6 +7,35 @@
 
 Usage Example
 
+kms_config = [{
+       instance_id      = "<kms_instance_id>"
+       crk_id           = "<root_key_id>"
+       private_endpoint = <bool_value>
+     },
+]
+
+
+workers_info = [{
+       id           = "<worker_node-id>"
+       version      = "<Kubernetes version that you want to update your worker nodes to>"
+   },
+]
+
+webhook = [{
+       level = "<Notification level, such as Normal or Warning>"
+       type  = "<he webhook type. Currently, Slack is supported>"
+       url   = "< The URL for the webhook.>"
+   },
+]
+
+tags = ["<Tag-1>","<Tag-2>"]
+
+subnet_id = ["<subnetID>"]
+
+
+*******************************************************/
+
+
 
 kms_config = [{
        instance_id      = "12043812-757f-4e1e-8436-6af3245e6a69"
@@ -32,29 +61,3 @@ webhook = [{
 tags = ["T1","T2"]
 
 subnet_id = ["1147081"]
-*******************************************************/
-
-kms_config = [{
-       instance_id      = "<kms_instance_id>"
-       crk_id           = "<root_key_id>"
-       private_endpoint = <bool_value>
-     },
-]
-
-
-workers_info = [{
-       id           = "<worker_node-id>"
-       version      = "<Kubernetes version that you want to update your worker nodes to>"
-   },
-]
-
-webhook = [{
-       level = "<Notification level, such as Normal or Warning>"
-       type  = "<he webhook type. Currently, Slack is supported>"
-       url   = "< The URL for the webhook.>"
-   },
-]
-
-tags = ["<Tag-1>","<Tag-2>"]
-
-subnet_id = ["<subnetID>"]

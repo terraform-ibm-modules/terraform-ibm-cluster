@@ -18,7 +18,7 @@ variable "metro" {
 variable "worker_nodes_per_zone"{
     description = "Number of worker nodes per zone"
     type        = number
-    default     = null 
+    default     = 1 
 }
 
 
@@ -62,13 +62,13 @@ variable "master_service_public_endpoint" {
 variable "force_delete_storage" {
     description = "force the removal of persistent storage associated with the cluster during cluster deletion."
     type        = bool
-    default     = null 
+    default     = false 
 }
 
 variable "gateway_enabled" {
     description = "Set to true if you want to automatically create a gateway-enabled cluster."
     type        = bool
-    default     = null 
+    default     = false 
 }
 
 variable "master_service_private_endpoint" {
@@ -80,25 +80,25 @@ variable "master_service_private_endpoint" {
 variable "encrypt_local_disk" {
     description = "Set this to true to encrypy disk."
     type        = bool
-    default     = null 
+    default     = true 
 }
 
 variable "no_subnet" {
     description = "If set to true, no portable subnet is created during cluster creation."
     type        = bool
-    default     = null 
+    default     = false 
 }
 
 variable "wait_till_albs" {
     description = "specify the stage when you want Terraform to mark the zone attachment complete."
     type        = bool
-    default     = null 
+    default     = true 
 }
 
 variable "update_all_workers" {
     description = "set to true, the Kubernetes version of the worker nodes is updated along with the Kubernetes version of the cluster that you specify in kube_version."
     type        = bool
-    default     = null 
+    default     = false 
 }
 
 variable "kube_version" {
@@ -122,6 +122,7 @@ variable "tags" {
 variable "subnet_id" {
     description = "ID of an existing subnet that you want to use for your worker nodes."
     type        = list
+    default = null
 }
 
 /************* zone attachment ************/
