@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     name: 'Terraform-validate'
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./examples/classic-free
@@ -26,20 +26,24 @@ jobs:
       id: fmt
       run: terraform fmt -check
       continue-on-error: true
+      working-directory: ./examples/classic-free
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       id: init
       run: terraform init
+      working-directory: ./examples/classic-free
 
     # Validates the configuration files
     - name: Terraform Validate
       id: validate
       run: terraform validate -no-color
+      working-directory: ./examples/classic-free
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       id: plan
       run: terraform plan -no-color
       continue-on-error: true
+      working-directory: ./examples/classic-free
 
