@@ -11,7 +11,10 @@ on:
 jobs:
   build:
     name: 'Terraform-validate'
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: ./examples/classic-free
     
     steps:
     # Checkout the repository to the GitHub Actions runner
