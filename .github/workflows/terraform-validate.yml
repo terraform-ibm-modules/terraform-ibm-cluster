@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./examples
+        working-directory: ./examples/classic-free
 
     steps:
     # Checkout the repository to the GitHub Actions runner
