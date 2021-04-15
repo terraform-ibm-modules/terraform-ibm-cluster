@@ -13,7 +13,7 @@ And it also has the following modules to configure a already provisioned cluster
 * [vpc-cluster-worker-pool](./modules/configure-vpc-worker-pool)
 * [add-ons](./modules/configure-addons)
 
-## Compatibility
+## Compatibility 
 
 This module is meant for use with Terraform 0.13. 
 
