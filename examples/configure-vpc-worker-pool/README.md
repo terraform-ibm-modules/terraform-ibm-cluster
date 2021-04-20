@@ -25,7 +25,7 @@ module "vpc_cluster_worker_pool" {
   entitlement                     = var.entitlement != null ? var.entitlement : null
 }
 ```
-## NOTE: 
+## NOTE:
 
 If we want to make use of a particular version of module, then set the "version" argument to respective module version.
 
@@ -48,7 +48,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## worker_zones Inputs 
+## worker_zones Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
@@ -58,7 +58,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 NOTE: We can configure the list of zones to be attached to a cluster by entering zone details in input.tfvars.
 
-Worker zones is a map(map(zones)), where key will be zone_name and value will be map containing respective public & private VLANs. 
+Worker zones is a map(map(zones)), where key will be zone_name and value will be map containing respective public & private VLANs.
 
 ## Usage
 

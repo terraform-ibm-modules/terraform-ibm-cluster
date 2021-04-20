@@ -15,7 +15,7 @@ And it also has the following modules to configure a already provisioned cluster
 
 ## Compatibility
 
-This module is meant for use with Terraform 0.13. 
+This module is meant for use with Terraform 0.13.
 
 ## Usage
 
@@ -34,7 +34,7 @@ module "classic_kubernetes_single_zone_cluster" {
 
   cluster_name                    = var.cluster_name
   worker_zone                     = var.worker_zone
-  hardware                        = var.hardware 
+  hardware                        = var.hardware
   resource_group_id               = data.ibm_resource_group.test.id
   worker_nodes_per_zone           = (var.worker_nodes_per_zone != null ? var.worker_nodes_per_zone : 1)
   worker_pool_flavor              = var.worker_pool_flavor != null ? var.worker_pool_flavor : null
@@ -77,7 +77,7 @@ module "vpc_openshift_cluster" {
   worker_pool_flavor              = var.worker_pool_flavor
   worker_zones                    = var.worker_zones
   worker_nodes_per_zone           = (var.worker_nodes_per_zone != null ? var.worker_nodes_per_zone : 1)
-  resource_group_id               = data.ibm_resource_group.test.id 
+  resource_group_id               = data.ibm_resource_group.test.id
   kube_version                    = (var.kube_version != null ? var.kube_version : null)
   update_all_workers              = (var.update_all_workers != null ? var.update_all_workers : false)
   service_subnet                  = (var.service_subnet != null ?  var.service_subnet : "172.21.0.0/16")
@@ -98,7 +98,7 @@ module "vpc_openshift_cluster" {
 ### Terraform plugins
 
 - [Terraform](https://www.terraform.io/downloads.html) 0.13
-- [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm) 
+- [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm)
 
 ## Install
 
@@ -111,7 +111,21 @@ Be sure you have the correct Terraform version (0.13), you can choose the binary
 
 Be sure you have the compiled plugins on $HOME/.terraform.d/plugins/
 
-- [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm) 
+- [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm)
+
+### Pre-commit Hooks
+
+Run the following command to execute the pre-commit hooks defined in .pre-commit-config.yaml file
+
+pre-commit run -a
+
+We can install pre-coomit tool using
+
+pip install pre-commit
+
+      or
+
+pip3 install pre-commit
 
 ## How to input varaible values through a file
 

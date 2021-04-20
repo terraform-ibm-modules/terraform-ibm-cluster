@@ -9,13 +9,13 @@ provider "ibm" {
 
 module "classic_free_cluster" {
   source  = "terraform-ibm-modules/cluster/ibm//modules/classic-free"
-  
+
   cluster_name        = var.cluster_name
   worker_zone         = var.worker_zone
   hardware            = var.hardware
 }
 ```
-## NOTE: 
+## NOTE:
 If we want to make use of a particular version of module, then set the "version" argument to respective module version.
 
 
@@ -32,4 +32,4 @@ If we want to make use of a particular version of module, then set the "version"
 
 ## Usage
 
-terraform apply 
+terraform apply

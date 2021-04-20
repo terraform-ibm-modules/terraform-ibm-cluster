@@ -17,7 +17,7 @@ module "classic_openshift_multi_zone_cluster" {
   cluster_name                    = var.cluster_name
   metro                           = var.metro
   worker_zones                    = var.worker_zones
-  hardware                        = var.hardware 
+  hardware                        = var.hardware
   resource_group_id               = data.ibm_resource_group.test.id
   worker_nodes_per_zone           = (var.worker_nodes_per_zone != null ? var.worker_nodes_per_zone : 1)
   worker_pool_flavor              = (var.worker_pool_flavor != null ? var.worker_pool_flavor : null)
@@ -40,7 +40,7 @@ module "classic_openshift_multi_zone_cluster" {
   wait_till_albs                  = var.wait_till_albs != null ? var.wait_till_albs : false
 }
 ```
-## NOTE: 
+## NOTE:
 
 If we want to make use of a particular version of module, then set the "version" argument to respective module version.
 
@@ -77,7 +77,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## worker_zones Inputs 
+## worker_zones Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
@@ -88,7 +88,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## kms_config Inputs 
+## kms_config Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
@@ -100,7 +100,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## workers_info Inputs 
+## workers_info Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
@@ -111,7 +111,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## webhook Inputs 
+## webhook Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
@@ -123,7 +123,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 NOTE: We can configure the list of zones, kms_config, workers_info and webhook to be attached to a cluster by entering respective details in input.tfvars.
 
-Worker zones is a map(map(zones)), where key will be zone_name and value will be map containing respective public & private VLANs. 
+Worker zones is a map(map(zones)), where key will be zone_name and value will be map containing respective public & private VLANs.
 
 ## Usage
 

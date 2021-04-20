@@ -1,4 +1,4 @@
-# Module classic-openshift-single-zone-cluster 
+# Module classic-openshift-single-zone-cluster
 
 This module is used to to provision a Red Hat Openshift cluster on IBM Cloud Infrastructure - classic.
 
@@ -16,7 +16,7 @@ module "classic_openshift_single_zone_cluster" {
 
   cluster_name                    = var.cluster_name
   worker_zone                     = var.worker_zone
-  hardware                        = var.hardware 
+  hardware                        = var.hardware
   resource_group_id               = data.ibm_resource_group.test.id
   worker_nodes_per_zone           = (var.worker_nodes_per_zone != null ? var.worker_nodes_per_zone : 1)
   worker_pool_flavor              = (var.worker_pool_flavor != null ? var.worker_pool_flavor : null)
@@ -28,7 +28,7 @@ module "classic_openshift_single_zone_cluster" {
   gateway_enabled                 = (var.gateway_enabled != null ? var.gateway_enabled : false)
   encrypt_local_disk              = (var.encrypt_local_disk != null ? var.encrypt_local_disk : true)
   no_subnet                       = (var.no_subnet != null ? var.no_subnet : false)
-  subnet_id                       = (var.subnet_id != null ? var.subnet_id : []) 
+  subnet_id                       = (var.subnet_id != null ? var.subnet_id : [])
   update_all_workers              = (var.update_all_workers != null ? var.update_all_workers : false)
   tags                            = (var.tags != null ? var.tags : [])
   kube_version                    = (var.kube_version != null ? var.kube_version : null)
@@ -39,7 +39,7 @@ module "classic_openshift_single_zone_cluster" {
 
 }
 ```
-## NOTE: 
+## NOTE:
 
 If we want to make use of a particular version of module, then set the "version" argument to respective module version.
 
@@ -75,7 +75,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## kms_config Inputs 
+## kms_config Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
@@ -87,7 +87,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## workers_info Inputs 
+## workers_info Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
@@ -98,7 +98,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## webhook Inputs 
+## webhook Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|

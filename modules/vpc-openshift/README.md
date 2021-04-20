@@ -1,4 +1,4 @@
-# Module vpc-openshift-cluster 
+# Module vpc-openshift-cluster
 
 This module is used to to provision an vpc openshift cluster on IBM Cloud Infrastructure - VPC.
 
@@ -17,7 +17,7 @@ module "vpc_openshift_cluster" {
   worker_pool_flavor              = var.worker_pool_flavor
   worker_zones                    = var.worker_zones
   worker_nodes_per_zone           = (var.worker_nodes_per_zone != null ? var.worker_nodes_per_zone : 1)
-  resource_group_id               = data.ibm_resource_group.test.id 
+  resource_group_id               = data.ibm_resource_group.test.id
   kube_version                    = (var.kube_version != null ? var.kube_version : null)
   update_all_workers              = (var.update_all_workers != null ? var.update_all_workers : false)
   service_subnet                  = (var.service_subnet != null ?  var.service_subnet : "172.21.0.0/16")
@@ -32,7 +32,7 @@ module "vpc_openshift_cluster" {
   entitlement                     = (var.entitlement != null ? var.entitlement : null)
 }
 ```
-## NOTE: 
+## NOTE:
 
 If we want to make use of a particular version of module, then set the "version" argument to respective module version.
 
@@ -63,7 +63,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## worker_zones Inputs 
+## worker_zones Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
@@ -73,7 +73,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## kms_config Inputs 
+## kms_config Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
@@ -87,5 +87,5 @@ If we want to make use of a particular version of module, then set the "version"
 
 All optional fields are given value `null` in varaible.tf file. User can configure the same by overwriting with appropriate values.
 
-Worker zones is a map(map(zones)), where key will be zone_name and value will be map containing respective subnet_id. 
+Worker zones is a map(map(zones)), where key will be zone_name and value will be map containing respective subnet_id.
 

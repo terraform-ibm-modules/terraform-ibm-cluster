@@ -25,7 +25,7 @@ module "cluster_sysdig_attach" {
   sysdig_instance_id              = data.ibm_resource_instance.sysdig_instance.guid
 }
 ```
-## NOTE: 
+## NOTE:
 
 If we want to make use of a particular version of module, then set the "version" argument to respective module version.
 
@@ -43,4 +43,4 @@ If we want to make use of a particular version of module, then set the "version"
 
 ## Usage
 
-terraform apply 
+terraform apply

@@ -4,7 +4,7 @@
 ########################################################
 
 /****************************************************
-Example Usage 
+Example Usage
 
 worker_zones = {
     dal12 = {
@@ -44,33 +44,33 @@ subnet_id = ["<subnetID>"]
 
 
 worker_zones = {
-    dal12 = {
-      public_vlan = "2949448"
-      private_vlan = "2949450"
-    }
+  dal12 = {
+    public_vlan  = "2949448"
+    private_vlan = "2949450"
+  }
 }
 
 kms_config = [{
-       instance_id      = "4b60eaa9-5a68-4ca7-bda3-23c41a3812af"
-       crk_id           = "8191042a-f9fe-4ec3-a36b-991b40201176"
-       private_endpoint = false
-     },
+  instance_id      = "4b60eaa9-5a68-4ca7-bda3-23c41a3812af"
+  crk_id           = "8191042a-f9fe-4ec3-a36b-991b40201176"
+  private_endpoint = false
+  },
 ]
 
 
 workers_info = [{
-       id           = "kube-btgbsard0ss76j8snblg-c2-default-000001a7"
-       version      = "4.3.23_openshift"
-   },
+  id      = "kube-btgbsard0ss76j8snblg-c2-default-000001a7"
+  version = "4.3.23_openshift"
+  },
 ]
 
 webhook = [{
-       level = "Normal"
-       type  = "slack"
-       url   = "https://hooks.slack.com/services/yt7rebjhgh2r4rd44fjk"
-   },
+  level = "Normal"
+  type  = "slack"
+  url   = "https://hooks.slack.com/services/yt7rebjhgh2r4rd44fjk"
+  },
 ]
 
-tags = ["T1","T2"]
+tags = ["T1", "T2"]
 
 subnet_id = ["1147081"]

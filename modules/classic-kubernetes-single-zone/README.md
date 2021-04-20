@@ -16,7 +16,7 @@ module "classic_kubernetes_single_zone_cluster" {
 
   cluster_name                    = var.cluster_name
   worker_zone                     = var.worker_zone
-  hardware                        = var.hardware 
+  hardware                        = var.hardware
   resource_group_id               = data.ibm_resource_group.test.id
   worker_nodes_per_zone           = (var.worker_nodes_per_zone != null ? var.worker_nodes_per_zone : 1)
   worker_pool_flavor              = var.worker_pool_flavor != null ? var.worker_pool_flavor : null
@@ -38,7 +38,7 @@ module "classic_kubernetes_single_zone_cluster" {
 
 }
 ```
-## NOTE: 
+## NOTE:
 
 If we want to make use of a particular version of module, then set the "version" argument to respective module version.
 
@@ -74,7 +74,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## kms_config Inputs 
+## kms_config Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
@@ -86,7 +86,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## workers_info Inputs 
+## workers_info Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
@@ -97,7 +97,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## webhook Inputs 
+## webhook Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|

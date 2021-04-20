@@ -14,7 +14,7 @@ module "classic_kubernetes_worker_pool" {
   add_ons                         = var.add_ons
 }
 ```
-## NOTE: 
+## NOTE:
 
 If we want to make use of a particular version of module, then set the "version" argument to respective module version.
 

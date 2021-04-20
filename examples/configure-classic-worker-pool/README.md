@@ -8,7 +8,7 @@ provider "ibm" {
 }
 
 data "ibm_resource_group" "test" {
-  name =  var.resource_group 
+  name =  var.resource_group
 }
 
 module "classic_cluster_worker_pool" {
@@ -26,7 +26,7 @@ module "classic_cluster_worker_pool" {
   labels                          = (var.labels != null ? var.labels : null )
 }
 ```
-## NOTE: 
+## NOTE:
 
 If we want to make use of a particular version of module, then set the "version" argument to respective module version.
 
@@ -52,7 +52,7 @@ If we want to make use of a particular version of module, then set the "version"
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## worker_zones Inputs 
+## worker_zones Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
