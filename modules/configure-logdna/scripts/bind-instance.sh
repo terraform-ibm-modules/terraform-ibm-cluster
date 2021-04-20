@@ -38,5 +38,5 @@ set -e
 echo "Creating LogDNA configuration for ${CLUSTER_ID} cluster and ${INSTANCE_ID} LogDNA instance"
 ibmcloud ob logging config create \
   --cluster "${CLUSTER_ID}" \
-  --instance "${INSTANCE_ID}" 
-  
+  --instance "${INSTANCE_ID}"
+

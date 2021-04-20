@@ -23,24 +23,24 @@ resource "ibm_container_cluster" "cluster" {
   tags                     = (var.tags != null ? var.tags : [])
 
   dynamic workers_info {
-    for_each = ( var.workers_info != null ? var.workers_info : [] ) 
+    for_each = (var.workers_info != null ? var.workers_info : [])
     content {
-      id           = (workers_info.value.id != "" ? workers_info.value.id : null)  
-      version      = (workers_info.value.version != "" ? workers_info.value.version : null)  
+      id      = (workers_info.value.id != "" ? workers_info.value.id : null)
+      version = (workers_info.value.version != "" ? workers_info.value.version : null)
     }
   }
 
   dynamic kms_config {
-    for_each = ( var.kms_config != null ? var.kms_config : [])
+    for_each = (var.kms_config != null ? var.kms_config : [])
     content {
       instance_id      = kms_config.value.instance_id
       crk_id           = kms_config.value.crk_id
-      private_endpoint = (kms_config.value.private_endpoint ? true: false)
+      private_endpoint = (kms_config.value.private_endpoint ? true : false)
     }
   }
 
   dynamic webhook {
-    for_each = ( var.webhook != null ? var.webhook : [])
+    for_each = (var.webhook != null ? var.webhook : [])
     content {
       level = webhook.value.level
       type  = webhook.value.type
@@ -50,14 +50,14 @@ resource "ibm_container_cluster" "cluster" {
 }
 
 resource "ibm_container_worker_pool_zone_attachment" "zones" {
- cluster           = ibm_container_cluster.cluster.id
- worker_pool       = ibm_container_cluster.cluster.worker_pools.0.id
- resource_group_id = var.resource_group_id
- wait_till_albs    = (var.wait_till_albs != null ? var.wait_till_albs : true)
+  cluster           = ibm_container_cluster.cluster.id
+  worker_pool       = ibm_container_cluster.cluster.worker_pools.0.id
+  resource_group_id = var.resource_group_id
+  wait_till_albs    = (var.wait_till_albs != null ? var.wait_till_albs : true)
 
- for_each  = (var.worker_zones != null ? var.worker_zones : {})
- zone   = each.key
- public_vlan_id = each.value["public_vlan"]
- private_vlan_id = each.value["private_vlan"]
+  for_each        = (var.worker_zones != null ? var.worker_zones : {})
+  zone            = each.key
+  public_vlan_id  = each.value["public_vlan"]
+  private_vlan_id = each.value["private_vlan"]
 }
 

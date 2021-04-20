@@ -26,8 +26,8 @@ resource "ibm_container_cluster" "cluster" {
   dynamic workers_info {
     for_each = (var.workers_info != null ? var.workers_info : [])
     content {
-      id           = (workers_info.value.id != "" ? workers_info.value.id : null)  
-      version      = (workers_info.value.version != "" ? workers_info.value.version : null)  
+      id      = (workers_info.value.id != "" ? workers_info.value.id : null)
+      version = (workers_info.value.version != "" ? workers_info.value.version : null)
     }
   }
 
@@ -36,7 +36,7 @@ resource "ibm_container_cluster" "cluster" {
     content {
       instance_id      = kms_config.value.instance_id
       crk_id           = kms_config.value.crk_id
-      private_endpoint = (kms_config.value.private_endpoint ? true: false)
+      private_endpoint = (kms_config.value.private_endpoint ? true : false)
     }
   }
 

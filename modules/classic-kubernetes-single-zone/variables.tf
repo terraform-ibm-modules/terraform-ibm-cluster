@@ -13,10 +13,10 @@ variable "worker_zone" {
   type        = string
 }
 
-variable "worker_nodes_per_zone"{
-    description = "Number of worker nodes per zone"
-    type        = number
-    default     = 1 
+variable "worker_nodes_per_zone" {
+  description = "Number of worker nodes per zone"
+  type        = number
+  default     = 1
 }
 
 variable "resource_group_id" {
@@ -55,15 +55,15 @@ variable "master_service_public_endpoint" {
 }
 
 variable "force_delete_storage" {
-    description = "force the removal of persistent storage associated with the cluster during cluster deletion."
-    type        = bool
-    default     = false 
+  description = "force the removal of persistent storage associated with the cluster during cluster deletion."
+  type        = bool
+  default     = false
 }
 
 variable "gateway_enabled" {
-    description = "Set to true if you want to automatically create a gateway-enabled cluster."
-    type        = bool
-    default = false
+  description = "Set to true if you want to automatically create a gateway-enabled cluster."
+  type        = bool
+  default     = false
 }
 
 variable "master_service_private_endpoint" {
@@ -73,21 +73,21 @@ variable "master_service_private_endpoint" {
 }
 
 variable "encrypt_local_disk" {
-    description = "Set this to true to encrypy disk."
-    type        = bool
-    default     = true 
+  description = "Set this to true to encrypy disk."
+  type        = bool
+  default     = true
 }
 
 variable "no_subnet" {
-    description = "If set to true, no portable subnet is created during cluster creation."
-    type        = bool
-    default     = false 
+  description = "If set to true, no portable subnet is created during cluster creation."
+  type        = bool
+  default     = false
 }
 
 variable "update_all_workers" {
-    description = "set to true, the Kubernetes version of the worker nodes is updated along with the Kubernetes version of the cluster that you specify in kube_version."
-    type        = bool
-    default     = false 
+  description = "set to true, the Kubernetes version of the worker nodes is updated along with the Kubernetes version of the cluster that you specify in kube_version."
+  type        = bool
+  default     = false
 }
 
 variable "kube_version" {
@@ -103,9 +103,9 @@ variable "tags" {
 }
 
 variable "subnet_id" {
-    description = "ID of an existing subnet that you want to use for your worker nodes."
-    type        = list
-    default     = null
+  description = "ID of an existing subnet that you want to use for your worker nodes."
+  type        = list
+  default     = null
 }
 
 variable "kms_config" {

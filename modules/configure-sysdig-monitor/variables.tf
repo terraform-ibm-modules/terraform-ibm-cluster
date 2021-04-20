@@ -4,12 +4,12 @@
 #####################################################
 
 variable "cluster_name" {
-    description = "Name of the cluster"
-    type        = string
+  description = "Name of the cluster"
+  type        = string
 }
 
 variable "sysdig_instance_id" {
-  type = string
+  type        = string
   description = "Sysdig instance id to attach to a cluster"
 }
 

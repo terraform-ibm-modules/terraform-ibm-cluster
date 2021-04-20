@@ -4,7 +4,7 @@
 #####################################################
 
 /****************************************************
-Example Usage -  configuaring multiple zones 
+Example Usage -  configuaring multiple zones
 
 worker_zones = {
     <zone_name_1> = {
@@ -20,8 +20,8 @@ worker_zones = {
 ******************************************************/
 
 worker_zones = {
-    dal12 = {
-      public_vlan = "2949448"
-      private_vlan = "2949450"
-    }
+  dal12 = {
+    public_vlan  = "2949448"
+    private_vlan = "2949450"
+  }
 }

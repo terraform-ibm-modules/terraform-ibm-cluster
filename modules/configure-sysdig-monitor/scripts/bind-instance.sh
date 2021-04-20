@@ -35,4 +35,4 @@ echo "Creating Sysdig configuration for ${CLUSTER_ID} cluster and ${INSTANCE_ID}
 ibmcloud ob monitoring config create \
   --cluster "${CLUSTER_ID}" \
   --instance "${INSTANCE_ID}"
-  
+

@@ -4,23 +4,23 @@
 #####################################################
 
 variable "cluster_name" {
-    description = "Enter the name of the cluster"
-    type        = string
+  description = "Enter the name of the cluster"
+  type        = string
 }
 
 variable "sysdig_name" {
-  type = string
+  type        = string
   description = "Enter the name of Sysdig instance to attach to a cluster"
 }
 
 variable "resource_group" {
-    description = "Enter the name of the resource group"
-    type        = string
+  description = "Enter the name of the resource group"
+  type        = string
 }
 
 variable "region" {
-    description = "Enter the region sysdig instance "
-    type        = string
+  description = "Enter the region sysdig instance "
+  type        = string
 }
 
 

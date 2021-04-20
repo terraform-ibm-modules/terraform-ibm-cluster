@@ -4,12 +4,12 @@
 #####################################################
 
 variable "cluster_name" {
-    description = "Name of the cluster"
-    type        = string
+  description = "Name of the cluster"
+  type        = string
 }
 
 variable "add_ons" {
-  type = map
+  type    = map
   default = {}
 }
 

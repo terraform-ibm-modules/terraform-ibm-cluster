@@ -25,7 +25,7 @@ module "cluster_logdna_attach" {
   logdna_instance_id              = data.ibm_resource_instance.logdna_instance.guid
 }
 ```
-## NOTE: 
+## NOTE:
 
 If we want to make use of a particular version of module, then set the "version" argument to respective module version.
 

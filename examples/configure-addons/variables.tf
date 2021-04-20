@@ -4,11 +4,11 @@
 #####################################################
 
 variable "cluster_name" {
-    description = "Name of the cluster"
-    type        = string
+  description = "Name of the cluster"
+  type        = string
 }
 
 variable "add_ons" {
-    type = map
-    description = "List of add-ons"
+  type        = map
+  description = "List of add-ons"
 }

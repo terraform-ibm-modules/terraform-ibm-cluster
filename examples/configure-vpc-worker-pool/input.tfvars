@@ -4,7 +4,7 @@
 #####################################################
 
 /****************************************************
-Example Usage -  configuaring multiple zones 
+Example Usage -  configuaring multiple zones
 
 worker_zones = {
     <zone_name_1> = {
@@ -20,7 +20,7 @@ worker_zones = {
 ******************************************************/
 
 worker_zones = {
-    us-south-1 = {
-      subnet_id = "0717-0d4f6c2d-8ec0-422f-a9ea-a7b773887f8c"
-    }
+  us-south-1 = {
+    subnet_id = "0717-0d4f6c2d-8ec0-422f-a9ea-a7b773887f8c"
+  }
 }
