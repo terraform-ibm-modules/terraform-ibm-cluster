@@ -4,8 +4,6 @@ This module is used to configure a logdna to an existing cluster on IBM Cloud In
 
 ## Example Usage
 ```
-provider "null" {}
-
 data "ibm_resource_group" "resource_group" {
   name = var.resource_group
 }
@@ -19,10 +17,12 @@ data "ibm_resource_instance" "logdna_instance" {
 }
 
 module "cluster_logdna_attach" {
-  source  = "terraform-ibm-modules/cluster/ibm//modules/configure-logdna"
+  source = "terraform-ibm-modules/cluster/ibm//modules/configure-logdna"
 
-  cluster_name                    = var.cluster_name
-  logdna_instance_id              = data.ibm_resource_instance.logdna_instance.guid
+  cluster              = var.cluster
+  logdna_instance_id   = data.ibm_resource_instance.logdna_instance.guid
+  private_endpoint     = var.private_endpoint
+  logdna_ingestion_key = var.logdna_ingestion_key
 }
 ```
 ## NOTE:
@@ -32,12 +32,14 @@ If we want to make use of a particular version of module, then set the "version"
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
-| Name                              | Description                                           | Type   | Default | Required |
-|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| cluster\_name                     | Name of the cluster                                   | string | n/a     | yes      |
-| logdna\_name                      | Name of the logdna to attach to a cluster.            | string | n/a     | yes      |
-| region                            | Region where sysdig is provisioned.                   | string | n/a     | no       |
-| resource\_group                   | Name of the resource group.                           | string | n/a     | yes      |
+| Name                              | Description                                               | Type   | Default | Required |
+|-----------------------------------|-----------------------------------------------------------|--------|---------|----------|
+| cluster                           | Name or id of the cluster                                 | string | n/a     | yes      |
+| logdna\_name                      | Name of the logdna to attach to a cluster.                | string | n/a     | yes      |
+| region                            | Region where sysdig is provisioned.                       | string | n/a     | no       |
+| resource\_group                   | Name of the resource group.                               | string | n/a     | yes      |
+| private_endpoint                  | Use to connect to LogDNA instance through private endpoint| bool   | n/a     | no       |
+| logdna_ingestion_key              | LogDNA ingestion key                                      | string | n/a     | no       |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

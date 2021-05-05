@@ -3,8 +3,8 @@
 # Copyright 2020 IBM
 #####################################################
 
-variable "cluster_name" {
-  description = "Enter the name of the cluster"
+variable "cluster" {
+  description = "Enter the name or id of the cluster"
   type        = string
 }
 
@@ -21,6 +21,18 @@ variable "resource_group" {
 variable "region" {
   description = "Enter the region sysdig instance "
   type        = string
+}
+
+variable "private_endpoint" {
+  description = "Add this option (true/false) to connect to your LogDNA service instance through the private service endpoint"
+  type        = bool
+  default     = null
+}
+
+variable "sysdig_access_key" {
+  type        = string
+  description = "sysdig access key"
+  default     = null
 }
 
 
