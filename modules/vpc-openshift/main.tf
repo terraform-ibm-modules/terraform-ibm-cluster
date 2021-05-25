@@ -12,6 +12,7 @@ resource "ibm_container_vpc_cluster" "cluster" {
   kube_version                    = (var.kube_version != null ? var.kube_version : null)
   update_all_workers              = (var.update_all_workers != null ? var.update_all_workers : false)
   service_subnet                  = (var.service_subnet != null ? var.service_subnet : null)
+  pod_subnet                      = (var.pod_subnet != null ? var.pod_subnet : null)
   worker_count                    = (var.worker_nodes_per_zone != null ? var.worker_nodes_per_zone : 1)
   worker_labels                   = (var.worker_labels != null ? var.worker_labels : null)
   disable_public_service_endpoint = (var.disable_public_service_endpoint != null ? var.disable_public_service_endpoint : false)
@@ -35,6 +36,14 @@ resource "ibm_container_vpc_cluster" "cluster" {
       instance_id      = kms_config.value.instance_id
       crk_id           = kms_config.value.crk_id
       private_endpoint = (kms_config.value.private_endpoint ? true : false)
+    }
+  }
+  dynamic timeouts {
+    for_each = var.timeouts
+    content {
+      create = (timeouts.value.create != null ? timeouts.value.create : null)
+      update = (timeouts.value.update != null ? timeouts.value.update : null)
+      delete = (timeouts.value.delete != null ? timeouts.value.delete : null)
     }
   }
 }
