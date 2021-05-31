@@ -6,7 +6,7 @@
 provider "ibm" {
 }
 
-data "ibm_resource_group" "test" {
+data "ibm_resource_group" "rg" {
   name = var.resource_group
 }
 
@@ -18,7 +18,7 @@ module "classic_cluster_worker_pool" {
   worker_nodes       = var.worker_nodes
   flavor             = var.flavor
   worker_zones       = var.worker_zones
-  resource_group_id  = data.ibm_resource_group.test.id
+  resource_group_id  = data.ibm_resource_group.rg.id
   wait_till_albs     = var.wait_till_albs
   hardware           = var.hardware
   encrypt_local_disk = var.encrypt_local_disk

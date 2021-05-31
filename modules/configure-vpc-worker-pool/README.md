@@ -7,7 +7,7 @@ This module is used to configure a worker pool to an existing IKS cluster on IBM
 provider "ibm" {
 }
 
-data "ibm_resource_group" "test" {
+data "ibm_resource_group" "rg" {
   name = var.resource_group
 }
 
@@ -18,7 +18,7 @@ module "vpc_cluster_worker_pool" {
   worker_pool_name                = var.worker_pool_name
   worker_nodes_per_zone           = var.worker_nodes_per_zone
   flavor                          = var.flavor
-  resource_group_id               = data.ibm_resource_group.test.id
+  resource_group_id               = data.ibm_resource_group.rg.id
   virtual_private_cloud           = var.virtual_private_cloud
   worker_zones                    = var.worker_zones
   labels                          = (var.labels != null ? var.labels : null )

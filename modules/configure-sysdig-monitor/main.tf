@@ -3,7 +3,7 @@
 # Copyright 2020 IBM
 #####################################################
 
-resource "ibm_ob_monitoring" "test2" {
+resource "ibm_ob_monitoring" "sysdig" {
   cluster           = var.cluster
   instance_id       = var.sysdig_instance_id
   sysdig_access_key = var.sysdig_access_key != null ? var.sysdig_access_key : null
