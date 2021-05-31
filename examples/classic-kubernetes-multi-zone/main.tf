@@ -6,7 +6,7 @@
 provider "ibm" {
 }
 
-data "ibm_resource_group" "test" {
+data "ibm_resource_group" "rg" {
   name = var.resource_group
 }
 
@@ -17,7 +17,7 @@ module "classic_kubernetes_multi_zone_cluster" {
   metro                           = var.metro
   worker_zones                    = var.worker_zones
   hardware                        = var.hardware
-  resource_group_id               = data.ibm_resource_group.test.id
+  resource_group_id               = data.ibm_resource_group.rg.id
   worker_nodes_per_zone           = var.worker_nodes_per_zone
   worker_pool_flavor              = var.worker_pool_flavor
   public_vlan                     = var.public_vlan_id

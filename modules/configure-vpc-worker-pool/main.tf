@@ -3,7 +3,7 @@
 # Copyright 2020 IBM
 #####################################################
 
-resource "ibm_container_vpc_worker_pool" "test_pool" {
+resource "ibm_container_vpc_worker_pool" "pool" {
   cluster           = var.cluster_name
   worker_pool_name  = var.worker_pool_name
   flavor            = var.flavor

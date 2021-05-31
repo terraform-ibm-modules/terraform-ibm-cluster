@@ -3,7 +3,7 @@
 # Copyright 2020 IBM
 #####################################################
 
-data "ibm_resource_group" "test" {
+data "ibm_resource_group" "rg" {
   name = var.resource_group
 }
 
@@ -15,7 +15,7 @@ module "vpc_openshift_cluster" {
   worker_pool_flavor              = var.worker_pool_flavor
   worker_zones                    = var.worker_zones
   worker_nodes_per_zone           = var.worker_nodes_per_zone
-  resource_group_id               = data.ibm_resource_group.test.id
+  resource_group_id               = data.ibm_resource_group.rg.id
   kube_version                    = var.kube_version
   update_all_workers              = var.update_all_workers
   service_subnet                  = var.service_subnet

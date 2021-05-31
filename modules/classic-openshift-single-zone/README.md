@@ -7,7 +7,7 @@ This module is used to to provision a Red Hat Openshift cluster on IBM Cloud Inf
 provider "ibm" {
 }
 
-data "ibm_resource_group" "test" {
+data "ibm_resource_group" "rg" {
   name = var.resource_group
 }
 
@@ -17,7 +17,7 @@ module "classic_openshift_single_zone_cluster" {
   cluster_name                    = var.cluster_name
   worker_zone                     = var.worker_zone
   hardware                        = var.hardware
-  resource_group_id               = data.ibm_resource_group.test.id
+  resource_group_id               = data.ibm_resource_group.rg.id
   worker_nodes_per_zone           = (var.worker_nodes_per_zone != null ? var.worker_nodes_per_zone : 1)
   worker_pool_flavor              = (var.worker_pool_flavor != null ? var.worker_pool_flavor : null)
   public_vlan                     = (var.public_vlan_id != null ? var.public_vlan_id : null)

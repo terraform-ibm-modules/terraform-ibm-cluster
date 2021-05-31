@@ -3,7 +3,7 @@
 # Copyright 2020 IBM
 #####################################################
 
-resource "ibm_container_worker_pool" "test_pool" {
+resource "ibm_container_worker_pool" "pool" {
   cluster           = var.cluster_name
   machine_type      = var.flavor
   worker_pool_name  = var.worker_pool_name
@@ -16,7 +16,7 @@ resource "ibm_container_worker_pool" "test_pool" {
 
 resource "ibm_container_worker_pool_zone_attachment" "zones" {
   cluster           = var.cluster_name
-  worker_pool       = element(split("/", ibm_container_worker_pool.test_pool.id), 1)
+  worker_pool       = element(split("/", ibm_container_worker_pool.pool.id), 1)
   wait_till_albs    = (var.wait_till_albs != null ? var.wait_till_albs : true)
   resource_group_id = var.resource_group_id
 
