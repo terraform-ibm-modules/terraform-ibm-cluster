@@ -119,4 +119,11 @@ variable "private_endpoint" {
   type        = string
   default     = null
 }
-
+######################################################
+#IBM-Cloud Network Variables
+######################################################
+variable "custom_sg_rules" {
+  description = "Custom Security rules"
+  type        = any // Refer README for type
+  default     = []
+}
