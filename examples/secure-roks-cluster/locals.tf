@@ -27,41 +27,60 @@ locals {
     create = var.create_timeout
   }]
   sg_rules = [
+    for r in local.rules : {
+      name       = r.name
+      direction  = r.direction
+      remote     = lookup(r, "remote", null)
+      ip_version = lookup(r, "ip_version", null)
+      icmp       = lookup(r, "icmp", null)
+      tcp        = lookup(r, "tcp", null)
+      udp        = lookup(r, "udp", null)
+    }
+  ]
+  custom_sg_rules = [
+    for r in var.custom_sg_rules : {
+      name       = r.name
+      direction  = r.direction
+      remote     = lookup(r, "remote", null)
+      ip_version = lookup(r, "ip_version", null)
+      icmp       = lookup(r, "icmp", null)
+      tcp        = lookup(r, "tcp", null)
+      udp        = lookup(r, "udp", null)
+    }
+  ]
+  rules = [
     {
-      name       = "${var.resource_prefix}-sg-rule-1"
-      direction  = "inbound"
-      remote     = ""
-      ip_version = ""
+      name      = "${var.resource_prefix}-ingress-1"
+      direction = "inbound"
       tcp = {
         port_min = 30000
         port_max = 32767
       }
-      icmp = null
-      udp  = null
     },
     {
-      name       = "${var.resource_prefix}-sg-rule-2"
-      direction  = "inbound"
-      remote     = ""
-      ip_version = ""
-      tcp        = null
+      name      = "${var.resource_prefix}-ingress-2"
+      direction = "inbound"
       udp = {
         port_min = 30000
         port_max = 32767
       }
-      icmp = null
     },
     {
-      name       = "${var.resource_prefix}-sg-rule-3"
-      direction  = "inbound"
-      remote     = ""
-      ip_version = ""
-      tcp        = null
-      udp        = null
+      name      = "${var.resource_prefix}-ingress-3"
+      direction = "inbound"
       icmp = {
         type = 8
         code = null
       }
+    },
+    {
+      name      = "${var.resource_prefix}-ingress-4"
+      direction = "inbound"
+      remote    = module.security_group.security_group_id[0]
+    },
+    {
+      name      = "${var.resource_prefix}-egress-1"
+      direction = "outbound"
     }
   ]
 }

@@ -34,13 +34,15 @@
 
     - Provisions VPC.
     - Provisions Subnets on all three zones.
-    - Defines Set of Security Group Rules. (**More Clarification is required on Rules**)
+    - Creates one Security Group and Defines Set of Security Group Rules. (**More Clarification is required on Rules**)
     - Current Rules are as follows
         |Direction|Protocol|Port or Value|Source type|
         |----|-----|----------|----|
         |Inbound|tcp|30000-32767|any|
         |Inbound|udp|30000-32767|any|
         |Inbound|icmp|8|any|
+        |Inbound|All|-|sg_group|
+        |Outbound|All|-|-|
 7. [iam.tf](iam.tf) - Provides Necessary IAM Authorisation Policies.
 
 ## Inputs
@@ -67,8 +69,45 @@
 |logDNA_name|Name of logDNA_name Instance. If `null` it creates an instance with `<var.resource_prefix>-logdna`|string|N/A|No|
 |logdna_ingestion_key|The LogDNA ingestion key that you want to use for your configuration|string|N/A|No|
 |private_endpoint|Add this option to connect to your Sysdig and logDNA service instance through the private service endpoint.|string|N/A|No|
+|custom_sg_rules|Custom Security rules. Find `custom_sg_rules` object table for more info. |list(object)|[]|No|
 
-### Note: To create KMS Key using this template both `kms_instance` and `kms_key` should be `null`
+### custom_sg_rules object
+
+|Name|Description|Type|Default|Required|
+|-----|----------|----|-------|--------|
+|name|Name of Security Group Rule|string|N/A|Yes|
+|direction|Direction of Security Group Rule (`inbound`/`outbound`)|string|N/A|Yes|
+|remote|Security group id - an IP address, a CIDR block, or a single security group identifier.|string|N/A|No|
+|ip_version|P version|string|N/A|no|
+|icmp|A nested block describing the `icmp` protocol of this security group rule. Conflicts with `tcp` and `udp`|object|N/A|No|
+|tcp|A nested block describing the `tcp` protocol of this security group rule. Conflicts with `icmp` and `udp`|object|N/A|No|
+|udp|A nested block describing the `udp` protocol of this security group rule. Conflicts with `icmp` and `tcp`|object|N/A|No|
+
+### icmp object
+
+|Name|Description|Type|Default|Required|
+|-----|----------|----|-------|--------|
+|type|The ICMP traffic type to allow. Valid values from 0 to 254.|int|N/A|Yes|
+|code|The ICMP traffic code to allow. Valid values from 0 to 255.|int|N/A|No|
+
+### tcp object
+
+|Name|Description|Type|Default|Required|
+|-----|----------|----|-------|--------|
+|port_min|The inclusive lower bound of TCP port range. Valid values are from 1 to 65535.|int|N/A|Yes|
+|port_max|The inclusive upper bound of TCP port range. Valid values are from 1 to 65535.|int|N/A|Yes|
+
+## udp object
+
+|Name|Description|Type|Default|Required|
+|-----|----------|----|-------|--------|
+|port_min|The inclusive lower bound of UDP port range. Valid values are from 1 to 65535.|int|N/A|Yes|
+|port_max|The inclusive upper bound of UDP port range. Valid values are from 1 to 65535.|int|N/A|Yes|
+
+### Notes
+
+- While creating custom security group rules, If any of the icmp , tcp or udp is not specified it creates a rule with protocol ALL.
+- To create KMS Key using this template both `kms_instance` and `kms_key` should be `null`
 
 ## Usage
 
