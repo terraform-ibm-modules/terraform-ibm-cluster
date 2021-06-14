@@ -7,4 +7,11 @@ resource "ibm_container_cluster" "cluster" {
   datacenter   = var.worker_zone
   hardware     = var.hardware
   machine_type = "free"
+
+  timeouts {
+    create = (var.create_timeout != null ? var.create_timeout : null)
+    update = (var.update_timeout != null ? var.update_timeout : null)
+    delete = (var.delete_timeout != null ? var.delete_timeout : null)
+  }
+
 }

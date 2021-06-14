@@ -12,3 +12,15 @@ variable "add_ons" {
   type        = map
   description = "List of add-ons"
 }
+
+variable "create_timeout" {
+  type        = string
+  description = "Timeout duration for create."
+  default     = null
+}
+
+variable "update_timeout" {
+  type        = string
+  description = "Timeout duration for update."
+  default     = null
+}

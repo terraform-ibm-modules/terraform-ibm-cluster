@@ -20,4 +20,9 @@ resource "ibm_container_vpc_worker_pool" "pool" {
       subnet_id = zones.value.subnet_id
     }
   }
+
+  timeouts {
+    create = (var.create_timeout != null ? var.create_timeout : null)
+    delete = (var.delete_timeout != null ? var.delete_timeout : null)
+  }
 }

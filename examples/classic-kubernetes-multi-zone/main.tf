@@ -11,7 +11,10 @@ data "ibm_resource_group" "rg" {
 }
 
 module "classic_kubernetes_multi_zone_cluster" {
-  source = "terraform-ibm-modules/cluster/ibm//modules/classic-kubernetes-multi-zone"
+  //Uncomment the following line to make the source point to registry level
+  //source = "terraform-ibm-modules/cluster/ibm//modules/classic-kubernetes-multi-zone"
+
+  source = "../../modules/classic-kubernetes-multi-zone"
 
   cluster_name                    = var.cluster_name
   metro                           = var.metro
@@ -36,4 +39,7 @@ module "classic_kubernetes_multi_zone_cluster" {
   workers_info                    = var.workers_info
   webhook                         = var.webhook
   wait_till_albs                  = var.wait_till_albs
+  create_timeout                  = var.create_timeout
+  update_timeout                  = var.update_timeout
+  delete_timeout                  = var.delete_timeout
 }

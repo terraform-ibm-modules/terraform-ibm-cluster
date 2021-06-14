@@ -48,4 +48,10 @@ resource "ibm_container_cluster" "cluster" {
       url   = webhook.value.url
     }
   }
+
+  timeouts {
+    create = (var.create_timeout != null ? var.create_timeout : null)
+    update = (var.update_timeout != null ? var.update_timeout : null)
+    delete = (var.delete_timeout != null ? var.delete_timeout : null)
+  }
 }

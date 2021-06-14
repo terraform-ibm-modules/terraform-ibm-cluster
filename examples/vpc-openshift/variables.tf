@@ -29,6 +29,24 @@ variable "worker_zones" {
   description = "List of worker zones to attach"
 }
 
+variable "create_timeout" {
+  type        = string
+  description = "Timeout duration for create."
+  default     = null
+}
+
+variable "update_timeout" {
+  type        = string
+  description = "Timeout duration for update."
+  default     = null
+}
+
+variable "delete_timeout" {
+  type        = string
+  description = "Timeout duration for delete."
+  default     = null
+}
+
 variable "resource_group" {
   description = "The name of resource_group"
   type        = string

@@ -36,4 +36,10 @@ resource "ibm_container_vpc_cluster" "cluster" {
       private_endpoint = (kms_config.value.private_endpoint ? true : false)
     }
   }
+
+  timeouts {
+    create = (var.create_timeout != null ? var.create_timeout : null)
+    update = (var.update_timeout != null ? var.update_timeout : null)
+    delete = (var.delete_timeout != null ? var.delete_timeout : null)
+  }
 }

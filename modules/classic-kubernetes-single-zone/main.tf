@@ -47,12 +47,10 @@ resource "ibm_container_cluster" "cluster" {
       url   = webhook.value.url
     }
   }
-  dynamic timeouts {
-    for_each = var.timeouts
-    content {
-      create = (timeouts.value.create != null ? timeouts.value.create : null)
-      update = (timeouts.value.update != null ? timeouts.value.update : null)
-      delete = (timeouts.value.delete != null ? timeouts.value.delete : null)
-    }
+
+  timeouts {
+    create = (var.create_timeout != null ? var.create_timeout : null)
+    update = (var.update_timeout != null ? var.update_timeout : null)
+    delete = (var.delete_timeout != null ? var.delete_timeout : null)
   }
 }

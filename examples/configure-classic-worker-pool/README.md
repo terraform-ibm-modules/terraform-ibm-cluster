@@ -8,11 +8,13 @@ provider "ibm" {
 }
 
 data "ibm_resource_group" "rg" {
-  name =  var.resource_group
+  name = var.resource_group
 }
 
 module "classic_cluster_worker_pool" {
-  source  = "terraform-ibm-modules/cluster/ibm//modules/configure-classic-worker-pool"
+  //Uncomment the following line to make the source point to registry level
+  //source = "terraform-ibm-modules/cluster/ibm//modules/configure-classic-worker-pool"
+  source = "../../modules/configure-classic-worker-pool"
 
   cluster_name                    = var.cluster_name
   worker_pool_name                = var.worker_pool_name
@@ -20,10 +22,13 @@ module "classic_cluster_worker_pool" {
   flavor                          = var.flavor
   worker_zones                    = var.worker_zones
   resource_group_id               = data.ibm_resource_group.rg.id
-  wait_till_albs                  = (var.wait_till_albs != null ? var.wait_till_albs : true)
-  hardware                        = (var.hardware != null ? var.hardware : "shared")
-  encrypt_local_disk              = (var.encrypt_local_disk != null ? var.encrypt_local_disk : true)
-  labels                          = (var.labels != null ? var.labels : null )
+  wait_till_albs                  = var.wait_till_albs
+  hardware                        = var.hardware
+  encrypt_local_disk              = var.encrypt_local_disk
+  labels                          = var.labels
+  create_timeout                  = var.create_timeout
+  update_timeout                  = var.update_timeout
+  delete_timeout                  = var.delete_timeout
 }
 ```
 ## NOTE:
@@ -47,6 +52,9 @@ If we want to make use of a particular version of module, then set the "version"
 | resource\_group                   |  Name of the resource group.                          | string | n/a     | no       |
 | wait_till_albs                    | Use to avoid long wait cluster creation time          | bool   | n/a     | no       |
 | labels                            | labels to add to the worker nodes in the worker pool  | map    | n/a     | no       |
+| create_timeout                    | Timeout duration for creation                         | string | n/a     | no       |
+| update_timeout                    | Timeout duration for updation                         | string | n/a     | no       |
+| delete_timeout                    | Timeout duration for deletion                         | string | n/a     | no       |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
@@ -71,3 +79,6 @@ terraform apply -var-file="input.tfvars"
 
 All optional fields are given value `null` in varaible.tf file. User can configure the same by overwriting with appropriate values.
 
+## Timeout block
+
+Same set of timeout values (create, update & delete) are applicable to all the resources in a module. For example, say a particular module has 2 resources R1 & R2, if we configure create timeout say 90 mins then R1 create timeout will be set to 90 mins and similarly create timeout for R2 also will be set to 90 mins.
