@@ -8,8 +8,9 @@ data "ibm_resource_group" "rg" {
 }
 
 module "vpc_kubernetes_cluster" {
-  source = "terraform-ibm-modules/cluster/ibm//modules/vpc-kubernetes"
-
+  //Uncomment the following line to make the source point to registry level
+  //source = "terraform-ibm-modules/cluster/ibm//modules/vpc-kubernetes"
+  source                          = "../../modules/vpc-kubernetes"
   cluster_name                    = var.cluster_name
   vpc_id                          = var.vpc_id
   worker_pool_flavor              = var.worker_pool_flavor
@@ -27,5 +28,7 @@ module "vpc_kubernetes_cluster" {
   cos_instance_crn                = var.cos_instance_crn
   force_delete_storage            = var.force_delete_storage
   kms_config                      = var.kms_config
-
+  create_timeout                  = var.create_timeout
+  update_timeout                  = var.update_timeout
+  delete_timeout                  = var.delete_timeout
 }

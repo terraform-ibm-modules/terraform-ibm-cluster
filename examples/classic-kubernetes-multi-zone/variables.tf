@@ -24,6 +24,24 @@ variable "public_vlan_id" {
   default     = null
 }
 
+variable "create_timeout" {
+  type        = string
+  description = "Timeout duration for create."
+  default     = null
+}
+
+variable "update_timeout" {
+  type        = string
+  description = "Timeout duration for update."
+  default     = null
+}
+
+variable "delete_timeout" {
+  type        = string
+  description = "Timeout duration for delete."
+  default     = null
+}
+
 variable "private_vlan_id" {
   description = "The ID of the private VLAN that you want to use for your worker nodes."
   type        = string

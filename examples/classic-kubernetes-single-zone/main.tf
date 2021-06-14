@@ -11,7 +11,9 @@ data "ibm_resource_group" "rg" {
 }
 
 module "classic_kubernetes_single_zone_cluster" {
-  source = "terraform-ibm-modules/cluster/ibm//modules/classic-kubernetes-single-zone"
+  //Uncomment the following line to make the source point to registry level
+  //source = "terraform-ibm-modules/cluster/ibm//modules/classic-kubernetes-single-zone"
+  source = "../../modules/classic-kubernetes-single-zone"
 
   cluster_name                    = var.cluster_name
   worker_zone                     = var.worker_zone
@@ -34,5 +36,7 @@ module "classic_kubernetes_single_zone_cluster" {
   kms_config                      = var.kms_config
   workers_info                    = var.workers_info
   webhook                         = var.webhook
-
+  create_timeout                  = var.create_timeout
+  update_timeout                  = var.update_timeout
+  delete_timeout                  = var.delete_timeout
 }

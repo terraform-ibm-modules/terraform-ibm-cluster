@@ -10,4 +10,9 @@ resource "ibm_container_addons" "addons" {
     name    = each.key
     version = each.value["version"]
   }
+
+  timeouts {
+    create = (var.create_timeout != null ? var.create_timeout : null)
+    update = (var.update_timeout != null ? var.update_timeout : null)
+  }
 }

@@ -11,8 +11,10 @@ data "ibm_resource_group" "rg" {
 }
 
 module "classic_openshift_multi_zone_cluster" {
-  source = "terraform-ibm-modules/cluster/ibm//modules/classic-openshift-multi-zone"
+  //Uncomment the following line to make the source point to registry level
+  //source = "terraform-ibm-modules/cluster/ibm//modules/classic-openshift-multi-zone"
 
+  source                          = "../../modules/classic-openshift-multi-zone"
   cluster_name                    = var.cluster_name
   metro                           = var.metro
   worker_zones                    = var.worker_zones
@@ -37,4 +39,7 @@ module "classic_openshift_multi_zone_cluster" {
   webhook                         = var.webhook
   entitlement                     = var.entitlement
   wait_till_albs                  = var.wait_till_albs
+  create_timeout                  = var.create_timeout
+  update_timeout                  = var.update_timeout
+  delete_timeout                  = var.delete_timeout
 }

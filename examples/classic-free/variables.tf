@@ -14,7 +14,25 @@ variable "worker_zone" {
 }
 
 variable "hardware" {
-  description = "The level of hardware isolation for your worker node."
+  description = "The level of hardware isolation for your worker node (shared / dedicated)"
   type        = string
+}
+
+variable "create_timeout" {
+  type        = string
+  description = "Timeout duration for create."
+  default     = null
+}
+
+variable "update_timeout" {
+  type        = string
+  description = "Timeout duration for update."
+  default     = null
+}
+
+variable "delete_timeout" {
+  type        = string
+  description = "Timeout duration for delete."
+  default     = null
 }
 

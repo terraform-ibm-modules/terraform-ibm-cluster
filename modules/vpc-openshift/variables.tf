@@ -24,6 +24,24 @@ variable "kube_version" {
   default     = null
 }
 
+variable "create_timeout" {
+  type        = string
+  description = "Timeout duration for create."
+  default     = null
+}
+
+variable "update_timeout" {
+  type        = string
+  description = "Timeout duration for update."
+  default     = null
+}
+
+variable "delete_timeout" {
+  type        = string
+  description = "Timeout duration for delete."
+  default     = null
+}
+
 variable "update_all_workers" {
   description = "set to true, the Kubernetes version of the worker nodes is updated along with the Kubernetes version of the cluster that you specify in kube_version."
   type        = bool

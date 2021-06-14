@@ -11,7 +11,9 @@ data "ibm_resource_group" "rg" {
 }
 
 module "classic_cluster_worker_pool" {
-  source = "terraform-ibm-modules/cluster/ibm//modules/configure-classic-worker-pool"
+  //Uncomment the following line to make the source point to registry level
+  //source = "terraform-ibm-modules/cluster/ibm//modules/configure-classic-worker-pool"
+  source = "../../modules/configure-classic-worker-pool"
 
   cluster_name       = var.cluster_name
   worker_pool_name   = var.worker_pool_name
@@ -23,4 +25,7 @@ module "classic_cluster_worker_pool" {
   hardware           = var.hardware
   encrypt_local_disk = var.encrypt_local_disk
   labels             = var.labels
+  create_timeout     = var.create_timeout
+  update_timeout     = var.update_timeout
+  delete_timeout     = var.delete_timeout
 }

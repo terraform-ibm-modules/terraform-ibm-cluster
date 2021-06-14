@@ -19,6 +19,24 @@ variable "worker_nodes_per_zone" {
   default     = 1
 }
 
+variable "create_timeout" {
+  type        = string
+  description = "Timeout duration for create."
+  default     = null
+}
+
+variable "update_timeout" {
+  type        = string
+  description = "Timeout duration for update."
+  default     = null
+}
+
+variable "delete_timeout" {
+  type        = string
+  description = "Timeout duration for delete."
+  default     = null
+}
+
 variable "resource_group_id" {
   description = "ID of resource group."
   type        = string

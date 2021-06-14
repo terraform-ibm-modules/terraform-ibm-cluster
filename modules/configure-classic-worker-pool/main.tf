@@ -12,6 +12,10 @@ resource "ibm_container_worker_pool" "pool" {
   hardware          = (var.hardware != null ? var.hardware : "shared")
   disk_encryption   = (var.encrypt_local_disk != null ? var.encrypt_local_disk : true)
   labels            = (var.labels != null ? var.labels : null)
+
+  timeouts {
+    update = (var.update_timeout != null ? var.update_timeout : null)
+  }
 }
 
 resource "ibm_container_worker_pool_zone_attachment" "zones" {
@@ -24,6 +28,12 @@ resource "ibm_container_worker_pool_zone_attachment" "zones" {
   zone            = each.key
   public_vlan_id  = each.value["public_vlan"]
   private_vlan_id = each.value["private_vlan"]
+
+  timeouts {
+    create = (var.create_timeout != null ? var.create_timeout : null)
+    update = (var.update_timeout != null ? var.update_timeout : null)
+    delete = (var.delete_timeout != null ? var.delete_timeout : null)
+  }
 
 }
 

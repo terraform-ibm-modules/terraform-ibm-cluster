@@ -60,6 +60,24 @@ variable "force_delete_storage" {
   default     = false
 }
 
+variable "create_timeout" {
+  type        = string
+  description = "Timeout duration for create."
+  default     = null
+}
+
+variable "update_timeout" {
+  type        = string
+  description = "Timeout duration for update."
+  default     = null
+}
+
+variable "delete_timeout" {
+  type        = string
+  description = "Timeout duration for delete."
+  default     = null
+}
+
 variable "gateway_enabled" {
   description = "Set to true if you want to automatically create a gateway-enabled cluster."
   type        = bool

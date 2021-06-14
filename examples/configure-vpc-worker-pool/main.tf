@@ -11,7 +11,9 @@ data "ibm_resource_group" "rg" {
 }
 
 module "vpc_cluster_worker_pool" {
-  source = "terraform-ibm-modules/cluster/ibm//modules/configure-vpc-worker-pool"
+  //Uncomment the following line to make the source point to registry level
+  //source = "terraform-ibm-modules/cluster/ibm//modules/configure-vpc-worker-pool"
+  source = "../../modules/configure-vpc-worker-pool"
 
   cluster_name          = var.cluster_name
   worker_pool_name      = var.worker_pool_name
@@ -22,4 +24,6 @@ module "vpc_cluster_worker_pool" {
   worker_zones          = var.worker_zones
   labels                = var.labels
   entitlement           = var.entitlement
+  create_timeout        = var.create_timeout
+  delete_timeout        = var.delete_timeout
 }

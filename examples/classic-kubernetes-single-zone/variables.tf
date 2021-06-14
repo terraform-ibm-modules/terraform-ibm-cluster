@@ -44,6 +44,24 @@ variable "worker_nodes_per_zone" {
   default     = null
 }
 
+variable "create_timeout" {
+  type        = string
+  description = "Timeout duration for create."
+  default     = null
+}
+
+variable "update_timeout" {
+  type        = string
+  description = "Timeout duration for update."
+  default     = null
+}
+
+variable "delete_timeout" {
+  type        = string
+  description = "Timeout duration for delete."
+  default     = null
+}
+
 variable "master_service_public_endpoint" {
   description = "Enable the public service endpoint to make the master publicly accessible."
   type        = bool
