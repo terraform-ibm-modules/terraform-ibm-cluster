@@ -18,7 +18,7 @@ module "kms" {
   service_name         = "${var.resource_prefix}-kp"
   location             = var.ibm_region
   plan                 = "tiered-pricing"
-  tags                 = ["FS-Cloud"]
+  tags                 = ["secure-roks"]
   key_name             = "${var.resource_prefix}-kp-key"
   standard_key_type    = var.standard_key_type
 }

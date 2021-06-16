@@ -1,4 +1,4 @@
-# FS Cloud Compliant Secure Cluster
+# Secure ROKS Cluster
 
 ## PHASE-1
 
@@ -9,8 +9,8 @@
 |[ ]| default deny on inbound /outbound ,any, any - until the tunnel comes up | N/A|
 |[ Done ]| clarity on how customers use their own keys |[kms.tf](kms.tf)|
 |[ ]| Privileged ports should be blocked. | N/A|
-|[ In Progress ]| Improved network policies should be published and applied by default for FS Cloud customers.|[network.tf](network.tf)|
-|[ Done ]| Logging and monitoring should be set secure by default and pointed to the IBM Cloud default product, with appropriate retention levels for FS Cloud.|[logging.tf](logging.tf) & [monitoring.tf](monitoring.tf)|
+|[ In Progress ]| Improved network policies should be published and applied by default for Secure ROKS Cluster.|[network.tf](network.tf)|
+|[ Done ]| Logging and monitoring should be set secure by default and pointed to the IBM Cloud default product, with appropriate retention levels for Secure ROKS Cluster.|[logging.tf](logging.tf) & [monitoring.tf](monitoring.tf)|
 
 ## Template Functionalities
 
