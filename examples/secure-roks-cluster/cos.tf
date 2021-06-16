@@ -12,5 +12,5 @@ resource "ibm_resource_instance" "cos_instance" {
   resource_group_id = data.ibm_resource_group.resource_group.id
   service           = "cloud-object-storage"
   plan              = "standard"
-  tags              = ["FS-Cloud"]
+  tags              = ["secure-roks"]
 }

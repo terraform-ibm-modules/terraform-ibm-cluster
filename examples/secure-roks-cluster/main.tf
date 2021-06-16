@@ -13,7 +13,7 @@ module "vpc_ocp_cluster" {
   kube_version                    = var.ocp_version
   worker_zones                    = local.worker_zones
   worker_nodes_per_zone           = var.worker_nodes_per_zone
-  tags                            = ["fs-cloud", "cluster"]
+  tags                            = ["secure-roks", "cluster"]
   disable_public_service_endpoint = var.disable_public_service_endpoint
   entitlement                     = var.ocp_entitlement
   cos_instance_crn                = local.cos_crn
