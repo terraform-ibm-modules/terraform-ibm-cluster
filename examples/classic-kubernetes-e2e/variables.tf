@@ -13,9 +13,15 @@ variable "metro" {
   type        = string
 }
 
+variable "hardware" {
+  description = "Enter worker pool hardware type (shared / dedicated)"
+  type        = string
+}
+
 variable "worker_pool_flavor" {
   description = "The machine type for your worker node."
   type        = string
+  default     = null
 }
 
 variable "public_vlan_id" {
@@ -50,11 +56,6 @@ variable "private_vlan_id" {
 
 variable "resource_group" {
   description = "Enter Name of the resource group"
-  type        = string
-}
-
-variable "hardware" {
-  description = "Enter worker pool hardware type (shared / dedicated)"
   type        = string
 }
 
