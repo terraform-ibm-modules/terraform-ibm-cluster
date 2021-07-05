@@ -42,7 +42,7 @@ If we want to make use of a particular version of module, then set the "version"
 | sysdig\_name                      | Name of the sysdig to attach to a cluster.                | string | n/a     | yes      |
 | region                            | Region where sysdig is provisioned.                       | string | n/a     | no       |
 | resource\_group                   | Name of the resource group.                               | string | n/a     | yes      |
-| private_endpoint                  | Use to connect to LogDNA instance through private endpoint| bool   | n/a     | no       |
+| private_endpoint                  | Use to connect to sysdig instance through private endpoint| bool   | n/a     | no       |
 | sysdig_access_key                 | sysdig access key                                         | string | n/a     | no       |
 | create_timeout                    | Timeout duration for create                               | string | n/a     | no       |
 | update_timeout                    | Timeout duration for update                               | string | n/a     | no       |
