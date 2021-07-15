@@ -127,3 +127,12 @@ variable "custom_sg_rules" {
   type        = any // Refer README for type
   default     = []
 }
+
+variable "ip_ranges" {
+  description = "Ordered List of ip_ranges on which subnets has to be created."
+  type        = list(string)
+  validation {
+    condition     = var.ip_ranges != [] && length(var.ip_ranges) == 3
+    error_message = "Length of ip_ranges should be 3. This modules supports creation of 3 multizone subnets."
+  }
+}
