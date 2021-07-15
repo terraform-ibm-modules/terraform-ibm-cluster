@@ -76,7 +76,7 @@ locals {
     {
       name      = "${var.resource_prefix}-ingress-4"
       direction = "inbound"
-      remote    = module.security_group.security_group_id[0]
+      remote    = module.vpc.vpc_default_security_group
     },
     {
       name      = "${var.resource_prefix}-egress-1"
