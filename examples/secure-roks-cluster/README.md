@@ -57,7 +57,7 @@ Review the status of the templates in the following table.
 
 ## Inputs
 
-Review the following objects that you can customize in your terraform templates to create the VPC and Red Hat OpenShift on IBM Cloud secure cluster.
+Review the following variables that you can customize in your Terraform templates to create the related IBM Cloud resources for your secure OpenShift cluster.
 
 |Name|Description|Type|Default|Required|
 |-----|----------|----|-------|--------|
@@ -92,7 +92,7 @@ For more information about security groups, see the [VPC documentation](https://
 |name|Name of security group rule.|string|N/A|Yes|
 |direction|Direction of security group rule. Accepted values are `inbound` or `outbound`.|string|N/A|Yes|
 |remote|The ID of the security group, which might be an IP address, a CIDR block, or a single security group identifier.|string|N/A|No|
-|ip_version|The IP version.<!--what does this mean?-->|string|N/A|no|
+|ip_version|The IP version. Accepted values are `ipv4` and `ipv6`.<!--verify what this means?-->|string|N/A|no|
 |icmp|A nested block that describes the `icmp` protocol of this security group rule. You cannot use this object if you use `tcp` or `udp`. For more information, see the following [`icmp` object](#icmp-object).|object|N/A|No|
 |tcp|A nested block that describes the `tcp` protocol of this security group rule. You cannot use this object if you use `icmp` or `udp`. For more information, see the following [`tcp` object](#tcp-object).|object|N/A|No|
 |udp|A nested block that describes the `udp` protocol of this security group rule. You cannot use this object if you use `icmp` or `tcp`. For more information, see the following [`udp` object](#udp-object).|object|N/A|No|
@@ -118,7 +118,7 @@ For more information about security groups, see the [VPC documentation](https://
 |port_min|The inclusive lower bound of UDP port range. Valid values are from 1 to 65535.|int|N/A|Yes|
 |port_max|The inclusive upper bound of UDP port range. Valid values are from 1 to 65535.|int|N/A|Yes|
 
-### Notes on the objects
+### Notes on the input variables
 
 - For the custom security group rules: If none of the `icmp`, `tcp`, and `udp` objects are specified, the template creates a rule with a protocol to allow **ALL**.
 - For the template to create a KMS instance and root key, you must leave empty both `kms_instance` and `kms_key` objects.
