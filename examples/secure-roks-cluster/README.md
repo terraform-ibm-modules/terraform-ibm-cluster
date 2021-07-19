@@ -4,7 +4,6 @@ Use this IBM Cloud Provider Plug-in for Terraform template to create a Red Hat O
 
 * Creates a Virtual private network (VPC) for the cluster.
 * Sets up worker nodes across zones for higher availability.
-* Enables private cloud service endpoint-only connection to the cluster master.
 * Automatically enables forwarding logging and monitoring data to your observability instances.
 * Encrypts the cluster secrets with your own Key Management Service provider key.
 
