@@ -14,13 +14,13 @@ Review the status of the templates in the following table.
 
 |Status|Requirement|Template|
 |------|-----------|--------|
-|[ Done ]| roks-on-vpc|[main.tf](main.tf)|
-|[ Done ]| tools to manage, alert and monitor|[logging.tf](logging.tf) & [monitoring.tf](monitoring.tf)|
-|[ ]| default deny on inbound /outbound ,any, any - until the tunnel comes up | N/A|
-|[ Done ]| clarity on how customers use their own keys |[kms.tf](kms.tf)|
-|[ ]| Privileged ports should be blocked. | N/A|
-|[ In Progress ]| Improved network policies should be published and applied by default for Secure ROKS Cluster.|[network.tf](network.tf)|
-|[ Done ]| Logging and monitoring should be set secure by default and pointed to the IBM Cloud default product, with appropriate retention levels for Secure ROKS Cluster.|[logging.tf](logging.tf) & [monitoring.tf](monitoring.tf)|
+|[ Done ]| Creating a Red Hat OpenShift on IBM Cloud cluster in a VPC.|[main.tf](main.tf)|
+|[ Done ]| IBM Cloud Observability tools to manage, alert, and monitor the health of your cluster.|[logging.tf](logging.tf) & [monitoring.tf](monitoring.tf)|
+|[ ]| Default deny on inbound/outbound,any, any - until the tunnel comes up. | N/A|
+|[ Done ]| Clarity on how users can provide their own keys to manage encryption for the cluster. |[kms.tf](kms.tf)|
+|[ ]| Block privileged ports. | N/A|
+|[ In Progress ]| Document and apply default network policies for the VPC and cluster.|[network.tf](network.tf)|
+|[ Done ]| Set up forwarding of cluster logs and metrics to IBM Cloud Monitoring and Log Analysis instances.|[logging.tf](logging.tf) & [monitoring.tf](monitoring.tf)|
 
 ## Template functionalities
 
