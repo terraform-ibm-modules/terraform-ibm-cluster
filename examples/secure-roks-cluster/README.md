@@ -50,25 +50,25 @@
 |Name|Description|Type|Default|Required|
 |-----|----------|----|-------|--------|
 |ibmcloud_api_key|IBM-Cloud API Key|string|N/A|Yes|
-|ibm_region|IBM-Cloud Region|string|N/A|Yes|
+|region|IBM-Cloud Region|string|N/A|Yes|
 |resource_group|Name of Resource Group. If `null` default resource group is considered|string|N/A|No|
-|cos_instance_name|Name of Object Storage Instance. If `null` it creates an instance with `<var.resource_prefix>-cos`|string|N/A|No|
+|cos_instance_name|Name of Object Storage Instance. If `null` it creates an instance with `<var.resource_prefix>-cos`|string|`null`|No|
 |resource_prefix|Prefix to the resource names|string|N/A|Yes|
 |flavor|The flavor of the VPC Cluster or worker node.|string|`bx2.4x16`|No|
 |ocp_version|Specify the Openshift version|string|`4.6.23_1540_openshift`|No|
 |ocp_entitlement|Value that is applied to the entitlements for OCP cluster provisioning|string|N/A|Yes|
-|disable_public_service_endpoint|Disable the public service endpoint to prevent public access to the master.|bool|false|No|
+|disable_public_service_endpoint|Disable the public service endpoint to prevent public access to the master.|bool|true|No|
 |worker_nodes_per_zone|The number of worker nodes per zone.|number|3|No|
 |create_timeout|Custom Creation timeout for Cluster|string|N/A|No|
 |roks_kms_policy|Determinies if Kubernetes to KMS Service Authorisation policy.If false it creates policy between services|bool|true|No|
-|kms_instance|Name of Key Protect Instance. If `null` it creates an instance with `<var.resource_prefix>-kp`|string|N/A|No|
-|kms_key|Name of Key Protect Key. If `null` it creates an instance with `<var.resource_prefix>-kp-key`|string|N/A|No|
+|kms_instance|Name of Key Protect Instance. If `null` it creates an instance with `<var.resource_prefix>-kp`|string|`null`|No|
+|kms_key|Name of Key Protect Key. If `null` it creates an instance with `<var.resource_prefix>-kp-key`|string|`null`|No|
 |standard_key_type|Determines if it is a standard key or not. This variable is only used during creation of KP Key in this module.|bool|`false`|No|
-|sysdig_name|"Name of Sysdig Instance. If `null` it creates an instance with `<var.resource_prefix>-sysdig`|string|N/A|No|
+|sysdig_name|"Name of Sysdig Instance. If `null` it creates an instance with `<var.resource_prefix>-sysdig`|string|`null`|No|
 |sysdig_access_key|The sysdig monitoring ingestion key that you want to use for your configuration|string|N/A|No|
-|logDNA_name|Name of logDNA_name Instance. If `null` it creates an instance with `<var.resource_prefix>-logdna`|string|N/A|No|
+|logdna_name|Name of logdna_name Instance. If `null` it creates an instance with `<var.resource_prefix>-logdna`|string|`null`|No|
 |logdna_ingestion_key|The LogDNA ingestion key that you want to use for your configuration|string|N/A|No|
-|private_endpoint|Add this option to connect to your Sysdig and logDNA service instance through the private service endpoint.|string|N/A|No|
+|private_endpoint|Add this option to connect to your Sysdig and logDNA service instance through the private service endpoint.|bool|true|No|
 |custom_sg_rules|Custom Security rules. Find `custom_sg_rules` object table for more info. |list(object)|[]|No|
 |ip_ranges|Ordered List of ip_ranges on which subnets has to be created. If subnets are created in us-south region, elements in ip_ranges should be equivalent to respective ip range of [`us-south-1`, `us-south-2`, `us-south-3`]|list(string)||Yes|
 
