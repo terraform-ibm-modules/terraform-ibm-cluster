@@ -6,7 +6,7 @@ variable "ibmcloud_api_key" {
   type        = string
   description = "IBM-Cloud API Key"
 }
-variable "ibm_region" {
+variable "region" {
   type        = string
   description = "IBM-Cloud Region"
 }
@@ -50,7 +50,7 @@ variable "ocp_entitlement" {
 variable "disable_public_service_endpoint" {
   description = "Disable the public service endpoint to prevent public access to the master"
   type        = bool
-  default     = false
+  default     = true
 }
 variable "worker_nodes_per_zone" {
   type        = number
@@ -104,10 +104,10 @@ variable "sysdig_access_key" {
   type        = string
   default     = null
 }
-variable "logDNA_name" {
+variable "logdna_name" {
   default     = null
   type        = string
-  description = "Name of logDNA_name Instance. If null it creates an instance with `<var.resource_prefix>-logdna`"
+  description = "Name of logdna_name Instance. If null it creates an instance with `<var.resource_prefix>-logdna`"
 }
 variable "logdna_ingestion_key" {
   description = "The LogDNA ingestion key that you want to use for your configuration"
@@ -116,8 +116,8 @@ variable "logdna_ingestion_key" {
 }
 variable "private_endpoint" {
   description = "Add this option to connect to your Sysdig and logDNA service instance through the private service endpoint."
-  type        = string
-  default     = null
+  type        = bool
+  default     = true
 }
 ######################################################
 #IBM-Cloud Network Variables

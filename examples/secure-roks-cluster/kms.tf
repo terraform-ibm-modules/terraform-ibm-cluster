@@ -3,7 +3,7 @@ data "ibm_resource_instance" "kms_instance" {
   name              = var.kms_instance
   service           = "kms"
   resource_group_id = data.ibm_resource_group.resource_group.id
-  location          = var.ibm_region
+  location          = var.region
 }
 data "ibm_kms_key" "kms_key" {
   count       = var.kms_instance != null && var.kms_key != null ? 1 : 0
@@ -16,7 +16,7 @@ module "kms" {
   is_kp_instance_exist = false
   resource_group_id    = data.ibm_resource_group.resource_group.id
   service_name         = "${var.resource_prefix}-kp"
-  location             = var.ibm_region
+  location             = var.region
   plan                 = "tiered-pricing"
   tags                 = ["secure-roks"]
   key_name             = "${var.resource_prefix}-kp-key"
