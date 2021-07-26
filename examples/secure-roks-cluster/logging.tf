@@ -5,7 +5,7 @@ module "logdna_instance" {
   bind_resource_key = true
   service_name      = "${var.resource_prefix}-logdna"
   resource_group_id = data.ibm_resource_group.resource_group.id
-  plan              = "30-day"
+  plan              = "lite"
   region            = var.region
   tags              = ["secure-roks"]
   create_timeout    = "30m"

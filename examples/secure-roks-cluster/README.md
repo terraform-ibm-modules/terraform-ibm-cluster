@@ -69,6 +69,7 @@
 |logdna_name|Name of logdna_name Instance. If `null` it creates an instance with `<var.resource_prefix>-logdna`|string|`null`|No|
 |logdna_ingestion_key|The LogDNA ingestion key that you want to use for your configuration|string|N/A|No|
 |private_endpoint|Add this option to connect to your Sysdig and logDNA service instance through the private service endpoint.|bool|true|No|
+|activity_tracker_instance_name|Name of Activity Tracker Instance. If null it doesnt create activity tracker instance.|string|`null`|No|
 |custom_sg_rules|Custom Security rules. Find `custom_sg_rules` object table for more info. |list(object)|[]|No|
 |ip_ranges|Ordered List of ip_ranges on which subnets has to be created. If subnets are created in us-south region, elements in ip_ranges should be equivalent to respective ip range of [`us-south-1`, `us-south-2`, `us-south-3`]|list(string)||Yes|
 
