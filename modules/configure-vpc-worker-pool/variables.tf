@@ -8,20 +8,11 @@ variable "cluster_name" {
   type        = string
 }
 
-variable "worker_pool_name" {
-  description = "Name of the worker pool."
-  type        = string
+variable "worker_pool_data" {
+  type        = map
+  description = "List of worker pool data"
 }
 
-variable "worker_nodes_per_zone" {
-  description = "Number of worker nodes"
-  type        = number
-}
-
-variable "flavor" {
-  description = "Machine type."
-  type        = string
-}
 
 variable "resource_group_id" {
   description = "ID of resource group."

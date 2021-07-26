@@ -4,14 +4,20 @@
 #####################################################
 
 resource "ibm_container_vpc_worker_pool" "pool" {
+  //count              = length(var.worker_pool_data)
+
   cluster           = var.cluster_name
-  worker_pool_name  = var.worker_pool_name
-  flavor            = var.flavor
   vpc_id            = var.virtual_private_cloud
-  worker_count      = var.worker_nodes_per_zone
   resource_group_id = var.resource_group_id
-  labels            = (var.labels != null ? var.labels : null)
-  entitlement       = (var.entitlement != null ? var.entitlement : null)
+
+  for_each         = var.worker_pool_data
+  worker_pool_name = each.key
+  flavor           = each.value["flavor"]
+  worker_count     = each.value["worker_count"]
+
+
+  labels      = (var.labels != null ? var.labels : null)
+  entitlement = (var.entitlement != null ? var.entitlement : null)
 
   dynamic zones {
     for_each = (var.worker_zones != null ? var.worker_zones : {})

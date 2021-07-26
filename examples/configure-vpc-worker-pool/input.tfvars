@@ -17,10 +17,28 @@ worker_zones = {
     }
 }
 
+worker_pools = {
+  pool_name_1 = {
+    flavor = "bx2.16.64"
+    worker_count = 1
+  }
+  pool_name_2 = {
+    flavor = "bx2.4x16"
+    worker_count = 1
+  }
+}
+
 ******************************************************/
 
 worker_zones = {
-  us-south-1 = {
-    subnet_id = "0717-0d4f6c2d-8ec0-422f-a9ea-a7b773887f8c"
+  us-south-2 = {
+    subnet_id = "0727-8b3e0eb1-7769-4972-a997-2f46893d4089"
+  }
+}
+
+worker_pool_data = {
+  w1 = {
+    flavor       = "bx2.8x32"
+    worker_count = 1
   }
 }

@@ -3,7 +3,9 @@
 # Copyright 2020 IBM
 #####################################################
 
-output "vpc_worker_pool_id" {
-  description = "The ID of the worker pool"
-  value       = ibm_container_vpc_worker_pool.pool.id
+output "vpc_worker_pool_ids" {
+  description = "List of worker pool IDs"
+  value = toset([
+    for wp in ibm_container_vpc_worker_pool.pool : wp.id
+  ])
 }
