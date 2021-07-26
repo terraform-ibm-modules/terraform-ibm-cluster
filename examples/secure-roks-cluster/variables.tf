@@ -119,6 +119,11 @@ variable "private_endpoint" {
   type        = bool
   default     = true
 }
+variable "activity_tracker_instance_name" {
+  description = "Name of Activity Tracker Instance. If null it doesnt create activity tracker instance."
+  default     = "fs-at"
+  type        = string
+}
 ######################################################
 #IBM-Cloud Network Variables
 ######################################################
