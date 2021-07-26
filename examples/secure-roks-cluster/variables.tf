@@ -121,7 +121,7 @@ variable "private_endpoint" {
 }
 variable "activity_tracker_instance_name" {
   description = "Name of Activity Tracker Instance. If null it doesnt create activity tracker instance."
-  default     = "fs-at"
+  default     = null
   type        = string
 }
 ######################################################
