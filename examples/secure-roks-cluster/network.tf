@@ -16,15 +16,7 @@ module "subnet" {
   location          = each.value
   ip_range          = element(var.ip_ranges, index(local.zones, each.value))
 }
-module "security_group" {
-  source  = "terraform-ibm-modules/vpc/ibm//modules/security-group"
-  version = "1.0.0"
 
-  create_security_group = false
-  security_group        = module.vpc.vpc_default_security_group
-  resource_group_id     = data.ibm_resource_group.resource_group.id
-  security_group_rules  = local.sg_rules
-}
 module "custom_sg_rules" {
   source  = "terraform-ibm-modules/vpc/ibm//modules/security-group"
   version = "1.0.0"
