@@ -45,6 +45,7 @@ Review the status of the templates in the following table.
     - Provisions VPC Subnets for all three zones in the region.
     - Creates one Security Group and defines a set of Security Group rules. (**More Clarification is required on Rules**)
     - Current Rules are shown in the following table.
+    
         |Direction|Protocol|Port or Value|Source type|
         |----|-----|----------|----|
         |Inbound|tcp|30000-32767|any|
@@ -52,6 +53,7 @@ Review the status of the templates in the following table.
         |Inbound|icmp|8|any|
         |Inbound|All|-|sg_group|
         |Outbound|All|-|-|
+        
 7. [iam.tf](iam.tf) - Sets up the required IAM service authorization policies between Kubernetes Service and Key Protect.
 
 ## Inputs
@@ -61,14 +63,14 @@ Review the following variables that you can customize in your Terraform template
 |Name|Description|Type|Default|Required|
 |-----|----------|----|-------|--------|
 |ibmcloud_api_key|[IBM Cloud IAM API key](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key).|string|N/A|Yes|
-|ibm_region|[IBM Cloud region for the VPC cluster](https://cloud.ibm.com/docs/openshift?topic=openshift-regions-and-zones#zones-vpc).|string|N/A|Yes|
+|region|[IBM Cloud region for the VPC cluster](https://cloud.ibm.com/docs/openshift?topic=openshift-regions-and-zones#zones-vpc).|string|N/A|Yes|
 |resource_group|Name of the [IBM Cloud resource group](https://cloud.ibm.com/docs/account?topic=account-rgs) to create the resources in. If not provided, the default resource group is used.|string|N/A|No|
 |cos_instance_name|Name of the IBM Cloud Object Storage instance. If not provided, an instance is created with the following naming convention: `<var.resource_prefix>-cos`|string|N/A|No|
 |resource_prefix|Prefix to use for created resource names.|string|N/A|Yes|
 |flavor|The flavor for the VPC worker nodes to create in the cluster. To list available flavors, run `ibmcloud ks flavors --zone <vpc_region>-1`.|string|`bx2.4x16`|No|
 |ocp_version|Specify the Red Hat OpenShift on IBM Cloud version. To list versions, run `ibmcloud ks versions`.|string|`4.6.23_1540_openshift`|No|
 |ocp_entitlement|The value that is used to decide how your worker nodes are entitled to run OpenShift Container Platform. For more information, see the [`--entitlement` option description in the docs](https://cloud.ibm.com/docs/openshift?topic=openshift-kubernetes-service-cli#cli_cluster-create-vpc-gen2).|string|N/A|Yes|
-|disable_public_service_endpoint|Disable the public service endpoint to prevent public access to the master.|bool|false|No|
+|disable_public_service_endpoint|Disable the public cloud service endpoint to prevent public access to the master.|bool|true|No|
 |worker_nodes_per_zone|The number of worker nodes per zone.|number|3|No|
 |create_timeout|Custom creation timeout for the cluster, in seconds.|string|N/A|No|
 |roks_kms_policy|Indicates if a Kubernetes Service to Key Protect service authorization policy exists in IAM. If false, a policy between the services is created.|bool|true|No|
@@ -79,8 +81,10 @@ Review the following variables that you can customize in your Terraform template
 |sysdig_access_key|The IBM Cloud Monitoring ingestion key that you want to use for your configuration.|string|N/A|No|
 |logDNA_name|Name of IBM Cloud Log Analysis instance. If not provided, an instance is created with the following naming convention: `<var.resource_prefix>-logdna`|string|N/A|No|
 |logdna_ingestion_key|The IBM Cloud Log Analysis ingestion key that you want to use for your configuration.|string|N/A|No|
-|private_endpoint|Add this option to connect to your Log Analysis and Monitoring service instances through the private service endpoint.|string|N/A|No|
+|private_endpoint|Add this option to connect to your Log Analysis and Monitoring service instances through the private cloud service endpoint.|bool|N/A|No|
+|activity_tracker_instance_name|Name of the IBM Cloud Activity Tracker instance. If not provided, a instance is created with the following naming convention: `<var.resource_prefix>-at`|string|`null`|No|
 |custom_sg_rules|Custom VPC security group rules. For more information, review the following [`custom_sg_rules` object](#custom_sg_rules-object). |list(object)|[]|No|
+|ip_ranges|An ordered list of IP address ranges on which the VPC subnets are created, for the region. If the subnets are created in the `us-south` region, the IP address ranges must match the IP address ranges of the region's zones, [`us-south-1`, `us-south-2`, `us-south-3`].|list(string)||Yes|
 
 ### custom_sg_rules object
 
