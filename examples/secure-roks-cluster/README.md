@@ -64,8 +64,8 @@ Review the following variables that you can customize in your Terraform template
 |-----|----------|----|-------|--------|
 |ibmcloud_api_key|[IBM Cloud IAM API key](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key).|string|N/A|Yes|
 |region|[IBM Cloud region for the VPC cluster](https://cloud.ibm.com/docs/openshift?topic=openshift-regions-and-zones#zones-vpc).|string|N/A|Yes|
-|resource_group|Name of the [IBM Cloud resource group](https://cloud.ibm.com/docs/account?topic=account-rgs) to create the resources in. If not provided, the default resource group is used.|string|N/A|No|
-|cos_instance_name|Name of the IBM Cloud Object Storage instance. If not provided, an instance is created with the following naming convention: `<var.resource_prefix>-cos`|string|N/A|No|
+|resource_group|Name of the [IBM Cloud resource group](https://cloud.ibm.com/docs/account?topic=account-rgs) to create the resources in. If set to `null`, the default resource group is used.|string|`null`|No|
+|cos_instance_name|Name of the IBM Cloud Object Storage instance. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-cos`|string|`null`|No|
 |resource_prefix|Prefix to use for created resource names.|string|N/A|Yes|
 |flavor|The flavor for the VPC worker nodes to create in the cluster. To list available flavors, run `ibmcloud ks flavors --zone <vpc_region>-1`.|string|`bx2.4x16`|No|
 |ocp_version|Specify the Red Hat OpenShift on IBM Cloud version. To list versions, run `ibmcloud ks versions`.|string|`4.6.23_1540_openshift`|No|
@@ -74,15 +74,15 @@ Review the following variables that you can customize in your Terraform template
 |worker_nodes_per_zone|The number of worker nodes per zone.|number|3|No|
 |create_timeout|Custom creation [timeout](https://www.terraform.io/docs/language/resources/syntax.html#operation-timeouts) for the cluster.|string|N/A|No|
 |roks_kms_policy|Indicates if a Kubernetes Service to Key Protect service authorization policy exists in IAM. If false, a policy between the services is created.|bool|true|No|
-|kms_instance|Name of the Key Protect instance to use to encrypt the secrets in the cluster. If not provided, an instance is created with the following naming convention: `<var.resource_prefix>-kp`|string|N/A|No|
-|kms_key|Name of the root key in the Key Protect instance to use. If not provided, an instance is created with the following naming convention: `<var.resource_prefix>-kp-key`|string|N/A|No|
+|kms_instance|Name of the Key Protect instance to use to encrypt the secrets in the cluster. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-kp`|string|`null`|No|
+|kms_key|Name of the root key in the Key Protect instance to use. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-kp-key`|string|`null`|No|
 |standard_key_type|Determines if the root key is a standard key or not. This variable is used only during creation of a Key Protect root key in this module.|bool|`false`|No|
-|sysdig_name| Name of the IBM Cloud Monitoring instance. If not provided, an instance is created with the following naming convention: `<var.resource_prefix>-sysdig`|string|N/A|No|
+|sysdig_name| Name of the IBM Cloud Monitoring instance. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-sysdig`|string|`null`|No|
 |sysdig_access_key|The IBM Cloud Monitoring ingestion key that you want to use for your configuration.|string|N/A|No|
-|logDNA_name|Name of IBM Cloud Log Analysis instance. If not provided, an instance is created with the following naming convention: `<var.resource_prefix>-logdna`|string|N/A|No|
+|logDNA_name|Name of IBM Cloud Log Analysis instance. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-logdna`|string|`null`|No|
 |logdna_ingestion_key|The IBM Cloud Log Analysis ingestion key that you want to use for your configuration.|string|N/A|No|
 |private_endpoint|Add this option to connect to your Log Analysis and Monitoring service instances through the private cloud service endpoint.|bool|N/A|No|
-|activity_tracker_instance_name|Name of the IBM Cloud Activity Tracker instance. If not provided, a instance is created with the following naming convention: `<var.resource_prefix>-at`|string|`null`|No|
+|activity_tracker_instance_name|Name of the IBM Cloud Activity Tracker instance. If set to `null`, a instance is created with the following naming convention: `<var.resource_prefix>-at`|string|`null`|No|
 |custom_sg_rules|Custom VPC security group rules. For more information, review the following [`custom_sg_rules` object](#custom_sg_rules-object). |list(object)|[]|No|
 |ip_ranges|An ordered list of IP address ranges on which the VPC subnets are created, for the region. If the subnets are created in the `us-south` region, the IP address ranges must match the IP address ranges of the region's zones, [`us-south-1`, `us-south-2`, `us-south-3`]. For more information, see [Designing an address plan in the VPC documentation](https://cloud.ibm.com/docs/vpc?topic=vpc-vpc-addressing-plan-design).|list(string)||Yes|
 
