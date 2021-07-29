@@ -14,7 +14,7 @@ func TestAccIBMClusterE2E(t *testing.T) {
 	// terraform testing.
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		// The path to where our Terraform code is located
-		TerraformDir: "../examples/cluster-e2e",
+		TerraformDir: "../examples/classic-kubernetes-e2e",
 
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
