@@ -72,7 +72,7 @@ Review the following variables that you can customize in your Terraform template
 |ocp_entitlement|The value that is used to decide how your worker nodes are entitled to run OpenShift Container Platform. For more information, see the [`--entitlement` option description in the docs](https://cloud.ibm.com/docs/openshift?topic=openshift-kubernetes-service-cli#cli_cluster-create-vpc-gen2).|string|N/A|Yes|
 |disable_public_service_endpoint|Disable the public cloud service endpoint to prevent public access to the master.|bool|true|No|
 |worker_nodes_per_zone|The number of worker nodes per zone.|number|3|No|
-|create_timeout|Custom creation timeout for the cluster, in seconds.|string|N/A|No|
+|create_timeout|Custom creation [timeout](https://www.terraform.io/docs/language/resources/syntax.html#operation-timeouts) for the cluster.|string|N/A|No|
 |roks_kms_policy|Indicates if a Kubernetes Service to Key Protect service authorization policy exists in IAM. If false, a policy between the services is created.|bool|true|No|
 |kms_instance|Name of the Key Protect instance to use to encrypt the secrets in the cluster. If not provided, an instance is created with the following naming convention: `<var.resource_prefix>-kp`|string|N/A|No|
 |kms_key|Name of the root key in the Key Protect instance to use. If not provided, an instance is created with the following naming convention: `<var.resource_prefix>-kp-key`|string|N/A|No|
@@ -84,7 +84,7 @@ Review the following variables that you can customize in your Terraform template
 |private_endpoint|Add this option to connect to your Log Analysis and Monitoring service instances through the private cloud service endpoint.|bool|N/A|No|
 |activity_tracker_instance_name|Name of the IBM Cloud Activity Tracker instance. If not provided, a instance is created with the following naming convention: `<var.resource_prefix>-at`|string|`null`|No|
 |custom_sg_rules|Custom VPC security group rules. For more information, review the following [`custom_sg_rules` object](#custom_sg_rules-object). |list(object)|[]|No|
-|ip_ranges|An ordered list of IP address ranges on which the VPC subnets are created, for the region. If the subnets are created in the `us-south` region, the IP address ranges must match the IP address ranges of the region's zones, [`us-south-1`, `us-south-2`, `us-south-3`].|list(string)||Yes|
+|ip_ranges|An ordered list of IP address ranges on which the VPC subnets are created, for the region. If the subnets are created in the `us-south` region, the IP address ranges must match the IP address ranges of the region's zones, [`us-south-1`, `us-south-2`, `us-south-3`]. For more information, see [Designing an address plan in the VPC documentation](https://cloud.ibm.com/docs/vpc?topic=vpc-vpc-addressing-plan-design).|list(string)||Yes|
 
 ### custom_sg_rules object
 
