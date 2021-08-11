@@ -1,5 +1,5 @@
 locals {
-  cos_crn            = var.cos_instance_name != null ? data.ibm_resource_instance.cos_instance[0].id : ibm_resource_instance.cos_instance[0].id
+  cos_crn            = var.cos_instance != null ? var.cos_instance : ibm_resource_instance.cos_instance[0].id
   sysdig_instance_id = var.sysdig_instance != null ? var.sysdig_instance : module.sysdig_instance[0].sysdig_guid
   logdna_instance_id = var.logdna_instance != null ? var.logdna_instance : module.logdna_instance[0].logdna_instance_guid
   zones              = [for index in range(3) : "${var.region}-${index + 1}"]

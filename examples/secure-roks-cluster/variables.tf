@@ -19,8 +19,8 @@ variable "resource_group" {
 ######################################################
 #IBM-Cloud Object Storage Variables
 ######################################################
-variable "cos_instance_name" {
-  description = "Name of Object Storage Instance. If null it creates an instance with `<var.resource_prefix>-cos"
+variable "cos_instance" {
+  description = "CRN of Object Storage Instance. If null it creates an instance with `<var.resource_prefix>-cos"
   type        = string
   default     = null
 }
