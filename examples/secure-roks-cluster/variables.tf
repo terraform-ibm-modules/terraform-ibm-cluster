@@ -140,5 +140,5 @@ variable "ip_ranges" {
 variable "number_of_addresses" {
   description = "Number of IPV4 Addresses. Conflicts with ip_ranges argument"
   type        = number
-  default     = 256
+  default     = null
 }

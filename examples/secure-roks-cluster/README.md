@@ -87,7 +87,7 @@ Review the following variables that you can customize in your Terraform template
 |activity_tracker_instance|GUID of the IBM Cloud Activity Tracker instance. If set to `null`, a instance is created with the following naming convention: `<var.resource_prefix>-at`|string|`null`|No|
 |custom_sg_rules|Custom VPC security group rules. For more information, review the following [`custom_sg_rules` object](#custom_sg_rules-object). |list(object)|[]|No|
 |ip_ranges|An ordered list of IP address ranges on which the three VPC subnets are created, for the region. If the subnets are created in the `us-south` region, the IP address ranges must match the IP address ranges of the region's zones, [`us-south-1`, `us-south-2`, `us-south-3`].Conflicts with `number_of_addresses` argument For more information, see [Designing an address plan in the VPC documentation](https://cloud.ibm.com/docs/vpc?topic=vpc-vpc-addressing-plan-design).|list(string)|null|No|
-|number_of_addresses|Number of IPV4 Addresses. Conflicts with `ip_ranges` argument|number|256|No|
+|number_of_addresses|Number of IPV4 Addresses. Conflicts with `ip_ranges` argument|number|`null`|No|
 
 ### custom_sg_rules object
 
