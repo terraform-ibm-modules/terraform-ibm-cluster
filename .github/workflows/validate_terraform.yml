@@ -37,7 +37,7 @@ jobs:
       -
         name: terraform fmt check           # perform format checks
         run: terraform fmt -list=true -write=false -check -recursive
-        
+
       - uses: 8398a7/action-slack@v2
         with:
           status: ${{ job.status }}
