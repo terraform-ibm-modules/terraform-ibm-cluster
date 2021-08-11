@@ -67,7 +67,7 @@ Review the following variables that you can customize in your Terraform template
 |ibmcloud_api_key|[IBM Cloud IAM API key](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key).|string|N/A|Yes|
 |region|[IBM Cloud region for the VPC cluster](https://cloud.ibm.com/docs/openshift?topic=openshift-regions-and-zones#zones-vpc).|string|N/A|Yes|
 |resource_group|Name of the [IBM Cloud resource group](https://cloud.ibm.com/docs/account?topic=account-rgs) to create the resources in. If set to `null`, the default resource group is used.|string|`null`|No|
-|cos_instance_name|Name of the IBM Cloud Object Storage instance. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-cos`|string|`null`|No|
+|cos_instance|CRN of the IBM Cloud Object Storage instance. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-cos`|string|`null`|No|
 |resource_prefix|Prefix to use for created resource names.|string|N/A|Yes|
 |flavor|The flavor for the VPC worker nodes to create in the cluster. To list available flavors, run `ibmcloud ks flavors --zone <vpc_region>-1`.|string|`bx2.4x16`|No|
 |ocp_version|Specify the Red Hat OpenShift on IBM Cloud version. To list versions, run `ibmcloud ks versions`.|string|`4.6_openshift`|No|
