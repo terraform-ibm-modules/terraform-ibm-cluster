@@ -75,6 +75,7 @@ Review the following variables that you can customize in your Terraform template
 |disable_public_service_endpoint|Disable the public cloud service endpoint to prevent public access to the master.|bool|true|No|
 |worker_nodes_per_zone|The number of worker nodes per zone.|number|3|No|
 |create_timeout|Custom creation [timeout](https://www.terraform.io/docs/language/resources/syntax.html#operation-timeouts) for the cluster.|string|N/A|No|
+|wait_till| The stage when you want Terraform to mark the cluster resource creation as completed. More details [here](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/container_vpc_cluster#wait_till)|string|`IngressReady`|No|
 |roks_kms_policy|Indicates if a Kubernetes Service to Key Protect service authorization policy exists in IAM. If false, a policy between the services is created.|bool|true|No|
 |kms_instance|GUID of the Key Protect instance to use to encrypt the secrets in the cluster. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-kp`|string|`null`|No|
 |kms_key|Key ID of the root key in the Key Protect instance to use. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-kp-key`|string|`null`|No|

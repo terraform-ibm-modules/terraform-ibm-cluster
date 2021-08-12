@@ -23,6 +23,7 @@ module "vpc_ocp_cluster" {
   kms_config                      = local.kms_config
   worker_labels                   = { worker = var.resource_prefix }
   create_timeout                  = var.create_timeout
+  wait_till                       = var.wait_till
 }
 
 module "configure_cluster_sysdig" {

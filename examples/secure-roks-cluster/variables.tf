@@ -57,6 +57,11 @@ variable "worker_nodes_per_zone" {
   description = "The number of worker nodes per zone."
   default     = 3
 }
+variable "wait_till" {
+  description = "specify the stage when Terraform to mark the cluster creation as completed."
+  type        = string
+  default     = "ingressReady"
+}
 variable "create_timeout" {
   type        = string
   description = "Custom Creation timeout for Cluster"
