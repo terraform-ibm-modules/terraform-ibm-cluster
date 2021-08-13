@@ -10,11 +10,14 @@ This is a collection of modules that make it easier to provision a cluster on IB
 * vpc-openshift-cluster
 * classic-free-cluster
 
-And it also has the following modules to configure a already provisioned cluster in IBM Cloud Platform:
+And it also has the following modules to configure an already provisioned cluster in IBM Cloud Platform:
 
 * classic-cluster-worker-pool
 * vpc-cluster-worker-pool
 * add-ons
+* logdna
+* portworx
+* sysdig-monitor
 
 ## Compatibility
 
@@ -118,17 +121,23 @@ Be sure you have the compiled plugins on $HOME/.terraform.d/plugins/
 
 ### Pre-commit Hooks
 
-Run the following command to execute the pre-commit hooks defined in .pre-commit-config.yaml file
+Run the following command to execute the pre-commit hooks defined in `.pre-commit-config.yaml` file
 
+```console
 pre-commit run -a
+```
 
 We can install pre-coomit tool using
 
+```console
 pip install pre-commit
+```
 
-      or
+or
 
+```console
 pip3 install pre-commit
+```
 
 ## How to input varaible values through a file
 

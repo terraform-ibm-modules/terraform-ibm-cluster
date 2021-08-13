@@ -24,7 +24,7 @@ data "ibm_container_cluster_config" "cluster_config" {
 
 module "portworx" {
   source = "../modules"
-  // TODO: With Terraform 0.13 replace the parameter 'enable' or the conditional expression using 'with_iaf' with 'count'
+  // TODO: With Terraform 0.13 replace the parameter 'enable' or the conditional expression using 'count'
   enable = true
 
   ibmcloud_api_key = var.ibmcloud_api_key
