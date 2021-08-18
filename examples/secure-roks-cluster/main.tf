@@ -29,18 +29,36 @@ module "vpc_ocp_cluster" {
 module "configure_cluster_sysdig" {
   source             = "terraform-ibm-modules/cluster/ibm//modules/configure-sysdig-monitor"
   version            = "1.4.0"
+  depends_on         = [module.configure_cluster_logdna]
   cluster            = module.vpc_ocp_cluster.vpc_openshift_cluster_id
   sysdig_instance_id = local.sysdig_instance_id
   private_endpoint   = var.private_endpoint
-  sysdig_access_key  = var.sysdig_access_key
+  sysdig_access_key  = var.monitoring_access_key
 }
 module "configure_cluster_logdna" {
   source               = "terraform-ibm-modules/cluster/ibm//modules/configure-logdna"
   version              = "1.4.0"
-  depends_on           = [module.configure_cluster_sysdig]
   cluster              = module.vpc_ocp_cluster.vpc_openshift_cluster_id
   logdna_instance_id   = local.logdna_instance_id
   private_endpoint     = var.private_endpoint
-  logdna_ingestion_key = var.logdna_ingestion_key
+  logdna_ingestion_key = var.logging_ingestion_key
+
 }
 
+data "ibm_container_cluster_config" "clusterConfig" {
+  depends_on      = [module.configure_cluster_sysdig]
+  cluster_name_id = module.vpc_ocp_cluster.vpc_openshift_cluster_id
+  config_dir      = "/tmp"
+}
+resource "null_resource" "patch_sysdig" {
+  depends_on = [module.configure_cluster_sysdig]
+  provisioner "local-exec" {
+    environment = {
+      KUBECONFIG = data.ibm_container_cluster_config.clusterConfig.config_file_path
+    }
+    command = <<EOT
+          export KUBECONFIG=$KUBECONFIG
+          kubectl -n ibm-observe set image ds/sysdig-agent  sysdig-agent=icr.io/ext/sysdig/agent
+        EOT
+  }
+}

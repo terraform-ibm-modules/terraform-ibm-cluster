@@ -1,7 +1,7 @@
 locals {
   cos_crn            = var.cos_instance != null ? var.cos_instance : ibm_resource_instance.cos_instance[0].id
-  sysdig_instance_id = var.sysdig_instance != null ? var.sysdig_instance : module.sysdig_instance[0].sysdig_guid
-  logdna_instance_id = var.logdna_instance != null ? var.logdna_instance : module.logdna_instance[0].logdna_instance_guid
+  sysdig_instance_id = var.monitoring_instance != null ? var.monitoring_instance : module.monitoring_instance[0].sysdig_guid
+  logdna_instance_id = var.logging_instance != null ? var.logging_instance : module.logging_instance[0].logdna_instance_guid
   zones              = [for index in range(3) : "${var.region}-${index + 1}"]
   worker_zones = {
     for zone in local.zones :
