@@ -80,10 +80,10 @@ Review the following variables that you can customize in your Terraform template
 |kms_instance|GUID of the Key Protect instance to use to encrypt the secrets in the cluster. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-kp`|string|`null`|No|
 |kms_key|Key ID of the root key in the Key Protect instance to use. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-kp-key`|string|`null`|No|
 |standard_key_type|Determines if the root key is a standard key or not. This variable is used only during creation of a Key Protect root key in this module.|bool|`false`|No|
-|sysdig_instance| GUID of the IBM Cloud Monitoring instance. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-sysdig`|string|`null`|No|
-|sysdig_access_key|The IBM Cloud Monitoring ingestion key that you want to use for your configuration.|string|N/A|No|
-|logdna_instance|GUID of IBM Cloud Log Analysis instance. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-logdna`|string|`null`|No|
-|logdna_ingestion_key|The IBM Cloud Log Analysis ingestion key that you want to use for your configuration.|string|N/A|No|
+|monitoring_instance| GUID of the IBM Cloud Monitoring instance. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-sysdig`|string|`null`|No|
+|monitoring_access_key|The IBM Cloud Monitoring ingestion key that you want to use for your configuration.|string|N/A|No|
+|logging_instance|GUID of IBM Cloud Log Analysis instance. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-logdna`|string|`null`|No|
+|logging_ingestion_key|The IBM Cloud Log Analysis ingestion key that you want to use for your configuration.|string|N/A|No|
 |private_endpoint|Add this option to connect to your Log Analysis and Monitoring service instances through the private cloud service endpoint.|bool|N/A|No|
 |activity_tracker_instance|GUID of the IBM Cloud Activity Tracker instance. If set to `null`, a instance is created with the following naming convention: `<var.resource_prefix>-at`|string|`null`|No|
 |custom_sg_rules|Custom VPC security group rules. For more information, review the following [`custom_sg_rules` object](#custom_sg_rules-object). |list(object)|[]|No|
