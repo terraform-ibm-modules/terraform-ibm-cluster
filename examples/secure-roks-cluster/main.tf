@@ -44,29 +44,9 @@ module "configure_cluster_logdna" {
   logdna_ingestion_key = var.logging_ingestion_key
 
 }
-data "ibm_container_vpc_cluster" "cluster" {
-  name              = module.vpc_ocp_cluster.vpc_openshift_cluster_id
-  resource_group_id = data.ibm_resource_group.resource_group.id
-}
-data "ibm_container_cluster_config" "clusterConfig" {
+module "patch_monitoring" {
+  source            = "./patch-sysdig"
   depends_on        = [module.configure_cluster_sysdig]
-  cluster_name_id   = module.vpc_ocp_cluster.vpc_openshift_cluster_id
+  cluster           = module.vpc_ocp_cluster.vpc_openshift_cluster_id
   resource_group_id = data.ibm_resource_group.resource_group.id
-  admin             = true
-  config_dir        = "/tmp"
-}
-resource "null_resource" "patch_sysdig" {
-  depends_on = [module.configure_cluster_sysdig]
-  provisioner "local-exec" {
-    environment = {
-      APIKEY     = var.ibmcloud_api_key
-      SERVER     = data.ibm_container_vpc_cluster.cluster.private_service_endpoint_url
-      KUBECONFIG = data.ibm_container_cluster_config.clusterConfig.config_file_path
-    }
-    command = <<EOT
-          export KUBECONFIG=$KUBECONFIG
-          oc login -u apikey -p $APIKEY --server $SERVER
-          oc -n ibm-observe set image ds/sysdig-agent  sysdig-agent=icr.io/ext/sysdig/agent
-        EOT
-  }
 }
