@@ -1,14 +1,9 @@
-resource "time_sleep" "wait_1m" {
-  create_duration = "1m"
-}
-
 data "ibm_container_vpc_cluster" "cluster" {
-  depends_on        = [time_sleep.wait_1m]
   name              = var.cluster
   resource_group_id = var.resource_group_id
 }
 data "ibm_container_cluster_config" "clusterConfig" {
-  depends_on        = [time_sleep.wait_1m, data.ibm_container_vpc_cluster.cluster]
+  depends_on        = [data.ibm_container_vpc_cluster.cluster]
   cluster_name_id   = var.cluster
   resource_group_id = var.resource_group_id
   config_dir        = "/tmp"
@@ -19,9 +14,12 @@ data "ibm_container_cluster_config" "clusterConfigRetry" {
   resource_group_id = var.resource_group_id
   config_dir        = "/tmp"
 }
+resource "time_sleep" "wait_1m" {
+  create_duration = "1m"
+}
 resource "null_resource" "patch_sysdig" {
   depends_on = [
-    data.ibm_container_cluster_config.clusterConfigRetry
+    time_sleep.wait_1m, data.ibm_container_cluster_config.clusterConfigRetry
   ]
   provisioner "local-exec" {
     environment = {
