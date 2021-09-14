@@ -6,21 +6,6 @@ variable "ibmcloud_api_key" {
   type        = string
   description = "IBM-Cloud API Key"
 }
-variable "region" {
-  type        = string
-  description = "IBM-Cloud Region"
-}
-variable "resource_group" {
-  type        = string
-  description = "Name of Resource Group. If null default resource group is considered"
-  default     = null
-}
-variable "resource_prefix" {
-  type        = string
-  description = "Prefix to the resource names"
-  default     = null
-}
-
 
 ######################################################
 #IBM-Cloud Logging and Monitoring Variables
@@ -53,9 +38,4 @@ variable "private_endpoint" {
   description = "Add this option to connect to your Sysdig and logDNA service instance through the private service endpoint."
   type        = bool
   default     = true
-}
-variable "activity_tracker_instance" {
-  description = "GUID of Activity Tracker Instance. If null it doesnt create activity tracker instance."
-  default     = null
-  type        = string
 }
