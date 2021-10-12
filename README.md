@@ -119,16 +119,45 @@ Be sure you have the compiled plugins on $HOME/.terraform.d/plugins/
 ### Pre-commit Hooks
 
 Run the following command to execute the pre-commit hooks defined in .pre-commit-config.yaml file
-
+```
 pre-commit run -a
+```
 
 We can install pre-coomit tool using
 
+```
 pip install pre-commit
 
       or
 
 pip3 install pre-commit
+```
+
+### Detect Secret Hook
+
+Used to detect secrets within a code base.
+
+To create a secret baseline file run following command
+
+```
+detect-secrets scan --update .secrets.baseline
+```
+
+While running the pre-commit hook, if you encounter an error like
+
+```
+WARNING: You are running an outdated version of detect-secrets.
+Your version: 0.13.1+ibm.27.dss
+Latest version: 0.13.1+ibm.46.dss
+See upgrade guide at https://ibm.biz/detect-secrets-how-to-upgrade
+```
+
+run below command
+
+```
+pre-commit autoupdate
+```
+which upgrades all the pre-commit hooks present in .pre-commit.yaml file.
 
 ## How to input varaible values through a file
 
