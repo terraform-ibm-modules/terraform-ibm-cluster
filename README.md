@@ -15,6 +15,7 @@ And it also has the following modules to configure a already provisioned cluster
 * classic-cluster-worker-pool
 * vpc-cluster-worker-pool
 * add-ons
+* openshift-route
 
 ## Compatibility
 
@@ -93,6 +94,19 @@ module "vpc_openshift_cluster" {
   force_delete_storage            = (var.force_delete_storage != null ? var.force_delete_storage : false)
   kms_config                      = (var.kms_config != null ? var.kms_config : [])
   entitlement                     = (var.entitlement != null ? var.entitlement : null)
+}
+```
+
+Creation of openshift route:
+
+```hcl
+module "openshift_cluster_route" {
+  source = "github.com/terraform-ibm-modules/terraform-ibm-cluster//modules/openshift-route"
+
+  ibmcloud_api_key    = var.ibmcloud_api_key
+  cluster_service_url = var.cluster_service_url
+  namespace           = var.namespace
+  route_data          = var.route_data
 }
 ```
 
