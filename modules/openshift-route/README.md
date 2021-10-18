@@ -2,14 +2,8 @@
 
 This module is used to provision a route to an openshift cluster. An [OpenShift route](https://docs.openshift.com/enterprise/3.0/architecture/core_concepts/routes.html) is a way to expose a service by giving it an externally-reachable hostname like www.example.com.
 
-## Prerequisite
 
-* Set up the IBM Cloud command line interface (CLI), the Satellite plug-in, and other related CLIs.
-* Install cli and plugin package
-```console
-    ibmcloud plugin install container-service
-```
-## Usage
+## Example Usage
 
 ```
 terraform init
