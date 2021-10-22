@@ -6,16 +6,19 @@
 variable "cluster_name" {
   description = "Name of the cluster"
   type        = string
+  default     = "clusterNew" //delete
 }
 
 variable "metro" {
   description = "The zone where the worker node is created."
   type        = string
+  default     = "dal10" //delete
 }
 
 variable "worker_pool_flavor" {
   description = "The machine type for your worker node."
   type        = string
+  default     = "b3c.16x64" //delete
 }
 
 variable "public_vlan_id" {
@@ -51,17 +54,19 @@ variable "private_vlan_id" {
 variable "resource_group" {
   description = "Enter Name of the resource group"
   type        = string
+  default     = "Default" //delete
 }
 
 variable "hardware" {
   description = "Enter worker pool hardware type (shared / dedicated)"
   type        = string
+  default     = "shared" //delete
 }
 
 variable "worker_nodes_per_zone" {
   description = "Number of workser nodes per zone"
   type        = number
-  default     = null
+  default     = 1 //delete
 }
 
 variable "master_service_public_endpoint" {
@@ -155,5 +160,13 @@ variable "subnet_id" {
   default     = null
 }
 
-
+variable "taints" {
+  type = list(object({
+    key    = string
+    value  = string
+    effect = string
+  }))
+  description = "Set taints to worker nodes."
+  default     = []
+}
 

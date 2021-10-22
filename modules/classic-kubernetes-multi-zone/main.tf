@@ -22,6 +22,14 @@ resource "ibm_container_cluster" "cluster" {
   update_all_workers       = (var.update_all_workers != null ? var.update_all_workers : false)
   tags                     = (var.tags != null ? var.tags : [])
 
+  dynamic taints {
+    for_each = (var.taints != null ? var.taints : [])
+    content {
+      key    = taints.value.key
+      value  = taints.value.value
+      effect = taints.value.effect
+    }
+  }
   dynamic workers_info {
     for_each = (var.workers_info != null ? var.workers_info : [])
     content {

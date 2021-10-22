@@ -42,4 +42,5 @@ module "classic_kubernetes_multi_zone_cluster" {
   create_timeout                  = var.create_timeout
   update_timeout                  = var.update_timeout
   delete_timeout                  = var.delete_timeout
+  taints                          = var.taints
 }

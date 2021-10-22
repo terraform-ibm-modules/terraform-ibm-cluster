@@ -43,6 +43,11 @@ module "classic_kubernetes_multi_zone_cluster" {
   create_timeout                  = var.create_timeout
   update_timeout                  = var.update_timeout
   delete_timeout                  = var.delete_timeout
+  #### Taints ####
+  is_taint_enabled                = var.is_taint_enabled
+  taint_key                       = var.taint_key
+  taint_value                     = var.taint_value
+  taint_effect                    = var.taint_effect
 }
 ```
 ## NOTE:
@@ -81,6 +86,10 @@ If we want to make use of a particular version of module, then set the "version"
 | create_timeout                    | Timeout duration for creation                                  | string | n/a     | no       |
 | update_timeout                    | Timeout duration for updation                                  | string | n/a     | no       |
 | delete_timeout                    | Timeout duration for deletion                                  | string | n/a     | no       |
+| is_taint_enabled                  | Enable this to set taints to all the worker nodes of default worker pool| bool   | false     | no       |
+| taint_key                    | Key for taint (Required when is_taint_enabled is true)              | string | n/a     | no       |
+| taint_value                  | Value for taint (Required when is_taint_enabled is true)            | string | n/a     | no       |
+| taint_effect                 | Effect for taint (Required when is_taint_enabled is true)           | string | n/a     | no       |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
