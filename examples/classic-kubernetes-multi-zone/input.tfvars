@@ -57,6 +57,13 @@ kms_config = [{
   },
 ]
 
+taints = [{
+  key    = "dedicated"
+  value  = "edge"
+  effect = "NoSchedule"
+  },
+]
+
 
 workers_info = [{
   id      = "kube-btgbsard0ss76j8snblg-c2-default-000001a7"
