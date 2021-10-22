@@ -27,6 +27,7 @@ func TestAccIBMClusterE2E(t *testing.T) {
 			"flavor":             "b3c.16x64",
 			"worker_pool_name":   "workerPoolDemo",
 			"region":             "us-south",
+			"private_vlan_id":    "2988890",
 		},
 	})
 
