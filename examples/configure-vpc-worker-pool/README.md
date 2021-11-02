@@ -24,6 +24,7 @@ module "vpc_cluster_worker_pool" {
   virtual_private_cloud = var.virtual_private_cloud
   worker_zones          = var.worker_zones
   labels                = var.labels
+  taints                = var.taints
   entitlement           = var.entitlement
   create_timeout        = var.create_timeout
   delete_timeout        = var.delete_timeout
@@ -49,6 +50,18 @@ If we want to make use of a particular version of module, then set the "version"
 | entitlement                       | OpenShift entitlement avoids the OCP licence charges           | string | n/a     | no       |
 | create_timeout                    | Timeout duration for create                                    | string | n/a     | no       |
 | delete_timeout                    | Timeout duration for delete                                    | string | n/a     | no       |
+| taints                            |A nested block that sets or removes Kubernetes taints for all worker nodes in a worker pool|list(string)| n/a  | no  |
+
+
+## taints Inputs
+
+| Name                | Description                                           | Type   | Default | Required |
+|---------------------|-------------------------------------------------------|--------|---------|----------|
+|  key                | Key for taint.                                        | string | n/a     | yes      |
+|  value              | Value for taint.                                      | string | n/a     | yes      |
+|  private_endpoint   | Effect for taint. Accepted values are NoSchedule, PreferNoSchedule, and NoExecute| string   | n/a     | yes       |
+
+
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

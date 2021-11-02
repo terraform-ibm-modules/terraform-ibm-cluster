@@ -32,6 +32,7 @@ module "classic_kubernetes_multi_zone_cluster" {
   update_all_workers              = var.update_all_workers
   tags                            = var.tags
   kube_version                    = var.kube_version
+  taints                          = var.taints
   wait_till_albs                  = var.wait_till_albs
   create_timeout                  = var.create_timeout
   update_timeout                  = var.update_timeout

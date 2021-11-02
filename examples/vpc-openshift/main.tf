@@ -29,6 +29,7 @@ module "vpc_openshift_cluster" {
   cos_instance_crn                = var.cos_instance_crn
   force_delete_storage            = var.force_delete_storage
   kms_config                      = var.kms_config
+  taints                          = var.taints
   entitlement                     = var.entitlement
   create_timeout                  = var.create_timeout
   update_timeout                  = var.update_timeout

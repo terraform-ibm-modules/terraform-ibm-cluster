@@ -23,6 +23,7 @@ module "vpc_cluster_worker_pool" {
   virtual_private_cloud = var.virtual_private_cloud
   worker_zones          = var.worker_zones
   labels                = var.labels
+  taints                = var.taints
   entitlement           = var.entitlement
   create_timeout        = var.create_timeout
   delete_timeout        = var.delete_timeout

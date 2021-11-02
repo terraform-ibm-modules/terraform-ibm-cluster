@@ -24,3 +24,10 @@ worker_zones = {
     subnet_id = "0717-0d4f6c2d-8ec0-422f-a9ea-a7b773887f8c"
   }
 }
+
+taints = [{
+  key    = "dedicated"
+  value  = "edge"
+  effect = "NoSchedule"
+  },
+]

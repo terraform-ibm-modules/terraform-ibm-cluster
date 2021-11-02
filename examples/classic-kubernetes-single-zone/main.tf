@@ -36,6 +36,7 @@ module "classic_kubernetes_single_zone_cluster" {
   kms_config                      = var.kms_config
   workers_info                    = var.workers_info
   webhook                         = var.webhook
+  taints                          = var.taints
   create_timeout                  = var.create_timeout
   update_timeout                  = var.update_timeout
   delete_timeout                  = var.delete_timeout

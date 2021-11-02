@@ -25,6 +25,7 @@ module "classic_cluster_worker_pool" {
   hardware           = var.hardware
   encrypt_local_disk = var.encrypt_local_disk
   labels             = var.labels
+  taints             = var.taints
   create_timeout     = var.create_timeout
   update_timeout     = var.update_timeout
   delete_timeout     = var.delete_timeout

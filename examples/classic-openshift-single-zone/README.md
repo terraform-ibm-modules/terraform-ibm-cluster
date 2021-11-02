@@ -38,6 +38,7 @@ module "classic_openshift_single_zone_cluster" {
   workers_info                    = var.workers_info
   webhook                         = var.webhook
   entitlement                     = var.entitlement
+  taints                          = var.taints
   create_timeout                  = var.create_timeout
   update_timeout                  = var.update_timeout
   delete_timeout                  = var.delete_timeout
@@ -77,7 +78,16 @@ If we want to make use of a particular version of module, then set the "version"
 | create_timeout                    | Timeout duration for create                           | string | n/a     | no       |
 | update_timeout                    | Timeout duration for update                           | string | n/a     | no       |
 | delete_timeout                    | Timeout duration for delete                           | string | n/a     | no       |
+| taints                            |A nested block that sets or removes Kubernetes taints for all worker nodes in a worker pool|list(string)| n/a  | no  |
 
+
+## taints Inputs
+
+| Name                | Description                                           | Type   | Default | Required |
+|---------------------|-------------------------------------------------------|--------|---------|----------|
+|  key                | Key for taint.                                        | string | n/a     | yes      |
+|  value              | Value for taint.                                      | string | n/a     | yes      |
+|  private_endpoint   | Effect for taint. Accepted values are NoSchedule, PreferNoSchedule, and NoExecute| string   | n/a     | yes       |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

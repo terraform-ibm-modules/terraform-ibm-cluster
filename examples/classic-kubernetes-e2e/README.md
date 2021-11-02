@@ -50,6 +50,16 @@
 | sysdig_access_key                 | sysdig access key                                              | string | n/a     | no       |
 | logDNA_name                       | Name of the logdna to attach to a cluster.                     | string | n/a     | yes      |
 | logdna_ingestion_key              | LogDNA ingestion key                                           | string | n/a     | no       |
+| taints                            |A nested block that sets or removes Kubernetes taints for all worker nodes in a worker pool|list(string)| n/a  | no  |
+
+
+## taints Inputs
+
+| Name                | Description                                           | Type   | Default | Required |
+|---------------------|-------------------------------------------------------|--------|---------|----------|
+|  key                | Key for taint.                                        | string | n/a     | yes      |
+|  value              | Value for taint.                                      | string | n/a     | yes      |
+|  private_endpoint   | Effect for taint. Accepted values are NoSchedule, PreferNoSchedule, and NoExecute| string   | n/a     | yes       |
 
 
 ## Usage

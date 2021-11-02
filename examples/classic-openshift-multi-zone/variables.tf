@@ -21,11 +21,13 @@ variable "worker_pool_flavor" {
 variable "public_vlan_id" {
   description = "The ID of the public VLAN that you want to use for your worker nodes."
   type        = string
+  default     = null
 }
 
 variable "private_vlan_id" {
   description = "The ID of the private VLAN that you want to use for your worker nodes."
   type        = string
+  default     = null
 }
 
 variable "resource_group" {
@@ -157,4 +159,19 @@ variable "subnet_id" {
   description = "ID of an existing subnet that you want to use for your worker nodes."
   type        = list
   default     = null
+}
+
+variable "taints" {
+  type = list(object({
+    key    = string
+    value  = string
+    effect = string
+  }))
+  description = "Set taints to worker nodes."
+  default = [{
+    key    = "dedicated"
+    value  = "edge"
+    effect = "NoSchedule"
+    },
+  ]
 }
