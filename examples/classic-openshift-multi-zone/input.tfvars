@@ -81,6 +81,13 @@ webhook = [{
   },
 ]
 
+taints = [{
+  key    = "dedicated"
+  value  = "edge"
+  effect = "NoSchedule"
+  },
+]
+
 tags = ["T1", "T2"]
 
 subnet_id = ["1147081"]

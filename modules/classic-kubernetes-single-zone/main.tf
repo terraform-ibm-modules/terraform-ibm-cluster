@@ -48,6 +48,15 @@ resource "ibm_container_cluster" "cluster" {
     }
   }
 
+  dynamic taints {
+    for_each = (var.taints != null ? var.taints : [])
+    content {
+      key    = taints.value.key
+      value  = taints.value.value
+      effect = taints.value.effect
+    }
+  }
+
   timeouts {
     create = (var.create_timeout != null ? var.create_timeout : null)
     update = (var.update_timeout != null ? var.update_timeout : null)

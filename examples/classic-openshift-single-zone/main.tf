@@ -37,6 +37,7 @@ module "classic_openshift_single_zone_cluster" {
   workers_info                    = var.workers_info
   webhook                         = var.webhook
   entitlement                     = var.entitlement
+  taints                          = var.taints
   create_timeout                  = var.create_timeout
   update_timeout                  = var.update_timeout
   delete_timeout                  = var.delete_timeout

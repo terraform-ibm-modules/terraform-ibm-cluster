@@ -25,3 +25,10 @@ worker_zones = {
     private_vlan = "2949450"
   }
 }
+
+taints = [{
+  key    = "dedicated"
+  value  = "edge"
+  effect = "NoSchedule"
+  },
+]

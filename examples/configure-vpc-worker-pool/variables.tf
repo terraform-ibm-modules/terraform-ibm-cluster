@@ -67,3 +67,18 @@ variable "delete_timeout" {
   description = "Timeout duration for delete."
   default     = null
 }
+
+variable "taints" {
+  type = list(object({
+    key    = string
+    value  = string
+    effect = string
+  }))
+  description = "Set taints to worker nodes."
+  default = [{
+    key    = "dedicated"
+    value  = "edge"
+    effect = "NoSchedule"
+    },
+  ]
+}

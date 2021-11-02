@@ -13,6 +13,15 @@ resource "ibm_container_worker_pool" "pool" {
   disk_encryption   = (var.encrypt_local_disk != null ? var.encrypt_local_disk : true)
   labels            = (var.labels != null ? var.labels : null)
 
+  dynamic taints {
+    for_each = (var.taints != null ? var.taints : [])
+    content {
+      key    = taints.value.key
+      value  = taints.value.value
+      effect = taints.value.effect
+    }
+  }
+
   timeouts {
     update = (var.update_timeout != null ? var.update_timeout : null)
   }

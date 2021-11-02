@@ -32,5 +32,12 @@ kms_config = [{
   },
 ]
 
+taints = [{
+  key    = "dedicated"
+  value  = "edge"
+  effect = "NoSchedule"
+  },
+]
+
 tags = ["T1", "T2"]
 

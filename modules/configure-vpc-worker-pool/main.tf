@@ -21,6 +21,15 @@ resource "ibm_container_vpc_worker_pool" "pool" {
     }
   }
 
+  dynamic taints {
+    for_each = (var.taints != null ? var.taints : [])
+    content {
+      key    = taints.value.key
+      value  = taints.value.value
+      effect = taints.value.effect
+    }
+  }
+
   timeouts {
     create = (var.create_timeout != null ? var.create_timeout : null)
     delete = (var.delete_timeout != null ? var.delete_timeout : null)
