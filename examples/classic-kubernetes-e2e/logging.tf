@@ -4,8 +4,8 @@
 #####################################################
 
 module "logdna_instance" {
-  source = "terraform-ibm-modules/observability/ibm//modules/logging-logdna"
-
+  source            = "terraform-ibm-modules/observability/ibm//modules/logging-logdna"
+  version           = "1.3.0"
   count             = var.logDNA_name == null ? 1 : 0
   bind_resource_key = true
   service_name      = "logdna"

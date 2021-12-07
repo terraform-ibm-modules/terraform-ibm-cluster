@@ -4,8 +4,8 @@
 #####################################################
 
 module "sysdig_instance" {
-  source = "terraform-ibm-modules/observability/ibm//modules/monitoring-sysdig"
-
+  source            = "terraform-ibm-modules/observability/ibm//modules/monitoring-sysdig"
+  version           = "1.3.0"
   count             = var.sysdig_name == null ? 1 : 0
   bind_resource_key = true
   service_name      = "sysdig"
