@@ -1,6 +1,6 @@
 module "logging_instance" {
-  source = "terraform-ibm-modules/observability/ibm//modules/logging-logdna"
-
+  source            = "terraform-ibm-modules/observability/ibm//modules/logging-logdna"
+  version           = "1.3.0"
   count             = var.logging_instance == null ? 1 : 0
   bind_resource_key = true
   service_name      = "${var.resource_prefix}-logging"
