@@ -83,7 +83,7 @@ variable "flavor" {
 
 variable "labels" {
   description = "A list of labels that you want to add to all the worker nodes in the worker pool"
-  type        = map
+  type        = map(any)
   default     = null
 }
 
@@ -144,7 +144,7 @@ variable "wait_till_albs" {
 
 variable "subnet_id" {
   description = "ID of an existing subnet that you want to use for your worker nodes."
-  type        = list
+  type        = list(any)
   default     = null
 }
 
