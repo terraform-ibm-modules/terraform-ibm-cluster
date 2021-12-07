@@ -1,6 +1,6 @@
 module "monitoring_instance" {
-  source = "terraform-ibm-modules/observability/ibm//modules/monitoring-sysdig"
-
+  source            = "terraform-ibm-modules/observability/ibm//modules/monitoring-sysdig"
+  version           = "1.3.0"
   count             = var.monitoring_instance == null ? 1 : 0
   bind_resource_key = true
   service_name      = "${var.resource_prefix}-monitoring"
