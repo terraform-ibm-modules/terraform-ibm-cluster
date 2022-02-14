@@ -70,7 +70,7 @@ Review the following variables that you can customize in your Terraform template
 |cos_instance|CRN of the IBM Cloud Object Storage instance. If set to `null`, an instance is created with the following naming convention: `<var.resource_prefix>-cos`|string|`null`|No|
 |resource_prefix|Prefix to use for created resource names.|string|N/A|Yes|
 |flavor|The flavor for the VPC worker nodes to create in the cluster. To list available flavors, run `ibmcloud ks flavors --zone <vpc_region>-1`.|string|`bx2.4x16`|No|
-|ocp_version|Specify the Red Hat OpenShift on IBM Cloud version. To list versions, run `ibmcloud ks versions`.|string|`4.6_openshift`|No|
+|ocp_version|Specify the Red Hat OpenShift on IBM Cloud version. To list versions, run `ibmcloud ks versions`.|string| N/A |No|
 |ocp_entitlement|The value that is used to decide how your worker nodes are entitled to run OpenShift Container Platform. For more information, see the [`--entitlement` option description in the docs](https://cloud.ibm.com/docs/openshift?topic=openshift-kubernetes-service-cli#cli_cluster-create-vpc-gen2).|string|N/A|Yes|
 |disable_public_service_endpoint|Disable the public cloud service endpoint to prevent public access to the master.|bool|true|No|
 |worker_nodes_per_zone|The number of worker nodes per zone.|number|3|No|

@@ -39,8 +39,7 @@ variable "flavor" {
 }
 variable "ocp_version" {
   type        = string
-  description = "Specify the Openshift version"
-  default     = "4.6_openshift"
+  description = "Specify the Openshift version. To list versions, run `ibmcloud ks versions`"
 }
 variable "ocp_entitlement" {
   type        = string
