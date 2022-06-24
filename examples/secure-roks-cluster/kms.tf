@@ -1,7 +1,7 @@
 module "kms" {
   count                = var.kms_instance == null && var.kms_key == null ? 1 : 0
   source               = "terraform-ibm-modules/kms/ibm//modules/key-protect"
-  version              = "1.0.0"
+  version              = "1.1.0"
   is_kp_instance_exist = false
   resource_group_id    = data.ibm_resource_group.resource_group.id
   service_name         = "${var.resource_prefix}-kp"
