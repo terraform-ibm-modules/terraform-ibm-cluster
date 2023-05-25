@@ -134,3 +134,9 @@ variable "taints" {
   description = "Set taints to worker nodes."
   default     = null
 }
+
+variable "patch_version" {
+  description = "Updates the worker nodes with the required patch version, patch_version_fixpack_version ."
+  type        = string
+  default     = null
+}
