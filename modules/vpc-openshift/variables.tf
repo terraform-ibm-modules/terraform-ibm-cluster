@@ -136,7 +136,7 @@ variable "taints" {
 }
 
 variable "patch_version" {
-  description = "Updates the worker nodes with the required patch version, patch_version_fixpack_version ."
+  description = "Updates the worker nodes with the required patch version. The patch_version should be in the format: patch_version_fixpack_version"
   type        = string
   default     = null
 }
