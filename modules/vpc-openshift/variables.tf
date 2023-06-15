@@ -1,6 +1,5 @@
 #####################################################
 # vpc openshift cluster provisioning
-# Copyright 2020 IBM
 #####################################################
 
 variable "cluster_name" {
@@ -16,6 +15,12 @@ variable "vpc_id" {
 variable "worker_pool_flavor" {
   description = " The flavor of the VPC worker node that you want to use."
   type        = string
+}
+
+variable "secondary_storage" {
+  description = "The Kubernetes or OpenShift secondary_storage that you want to set up in your cluster."
+  type        = string
+  default     = null
 }
 
 variable "kube_version" {
@@ -122,15 +127,5 @@ variable "kms_config" {
 variable "entitlement" {
   description = "Enable openshift entitlement during cluster creation ."
   type        = string
-  default     = null
-}
-
-variable "taints" {
-  type = list(object({
-    key    = string
-    value  = string
-    effect = string
-  }))
-  description = "Set taints to worker nodes."
   default     = null
 }

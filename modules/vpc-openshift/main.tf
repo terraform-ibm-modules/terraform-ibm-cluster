@@ -1,6 +1,5 @@
 #####################################################
 # vpc openshift cluster provisioning
-# Copyright 2020 IBM
 #####################################################
 
 resource "ibm_container_vpc_cluster" "cluster" {
@@ -20,6 +19,7 @@ resource "ibm_container_vpc_cluster" "cluster" {
   cos_instance_crn                = (var.cos_instance_crn != null ? var.cos_instance_crn : null)
   force_delete_storage            = (var.force_delete_storage != null ? var.force_delete_storage : false)
   entitlement                     = (var.entitlement != null ? var.entitlement : null)
+  secondary_storage               = (var.secondary_storage != null ? var.secondary_storage :null)
 
   dynamic zones {
     for_each = (var.worker_zones != null ? var.worker_zones : {})
@@ -35,15 +35,6 @@ resource "ibm_container_vpc_cluster" "cluster" {
       instance_id      = kms_config.value.instance_id
       crk_id           = kms_config.value.crk_id
       private_endpoint = (kms_config.value.private_endpoint ? true : false)
-    }
-  }
-
-  dynamic taints {
-    for_each = (var.taints != null ? var.taints : [])
-    content {
-      key    = taints.value.key
-      value  = taints.value.value
-      effect = taints.value.effect
     }
   }
 

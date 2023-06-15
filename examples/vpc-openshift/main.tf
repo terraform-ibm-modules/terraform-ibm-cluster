@@ -25,6 +25,7 @@ module "vpc_openshift_cluster" {
   worker_labels                   = var.worker_labels
   wait_till                       = var.wait_till
   disable_public_service_endpoint = var.disable_public_service_endpoint
+  secondary_storage               = var.secondary_storage
   tags                            = var.tags
   cos_instance_crn                = var.cos_instance_crn
   force_delete_storage            = var.force_delete_storage

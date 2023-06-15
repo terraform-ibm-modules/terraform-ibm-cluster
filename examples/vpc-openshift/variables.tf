@@ -24,6 +24,12 @@ variable "worker_nodes_per_zone" {
   default     = null
 }
 
+variable "secondary_storage" {
+  description = " The secondary_storage of the VPC worker node that you want to use."
+  type        = string
+  default     = null
+}
+
 variable "worker_zones" {
   type        = map
   description = "List of worker zones to attach"
