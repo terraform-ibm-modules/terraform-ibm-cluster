@@ -26,7 +26,6 @@ worker_zones = {
   }
 }
 
-secondary_storage = "900gb.5iops-tier"
 
 kms_config = [{
   instance_id      = "4b60eaa9-5a68-4ca7-bda3-23c41a3812af"
