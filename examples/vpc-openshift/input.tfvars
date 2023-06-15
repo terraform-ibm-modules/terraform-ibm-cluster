@@ -27,6 +27,7 @@ worker_zones = {
 }
 
 
+
 kms_config = [{
   instance_id      = "4b60eaa9-5a68-4ca7-bda3-23c41a3812af"
   crk_id           = "8191042a-f9fe-4ec3-a36b-991b40201176"
