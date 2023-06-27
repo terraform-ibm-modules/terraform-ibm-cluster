@@ -2,11 +2,11 @@
 
 terraform {
   required_version = ">=0.13"
-  /*required_providers {
+  required_providers {
     ibm = {
       source = "IBM-Cloud/ibm"
     }
-  }*/
+  }
 }
 
 provider "ibm" {
@@ -34,14 +34,12 @@ resource "ibm_sm_secret_group" "sm_secret_group" {
   description   = var.sm_secret_group_description
 }
 
-/*
 ### Create service-to-service authorizations
 resource "ibm_iam_authorization_policy" "sm_auth" {
   source_service_name = "containers-kubernetes"
   target_service_name = "secrets-manager"
   roles               = ["Manager"]
 }
-*/
 
 ### Register the Secrets Manager instance to the cluster
 ### See documentation https://cloud.ibm.com/docs/containers?topic=containers-secrets-mgr#secrets-mgr_setup_create
