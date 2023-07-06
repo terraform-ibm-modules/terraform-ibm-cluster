@@ -13,7 +13,7 @@ resource "ibm_container_vpc_worker_pool" "pool" {
   labels            = (var.labels != null ? var.labels : null)
   entitlement       = (var.entitlement != null ? var.entitlement : null)
 
-  dynamic zones {
+  dynamic "zones" {
     for_each = (var.worker_zones != null ? var.worker_zones : {})
     content {
       name      = zones.key
@@ -21,7 +21,7 @@ resource "ibm_container_vpc_worker_pool" "pool" {
     }
   }
 
-  dynamic taints {
+  dynamic "taints" {
     for_each = (var.taints != null ? var.taints : [])
     content {
       key    = taints.value.key

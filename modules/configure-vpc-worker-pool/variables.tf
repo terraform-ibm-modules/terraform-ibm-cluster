@@ -29,7 +29,7 @@ variable "resource_group_id" {
 }
 
 variable "worker_zones" {
-  type    = map
+  type    = map(any)
   default = {}
 }
 
@@ -39,7 +39,7 @@ variable "virtual_private_cloud" {
 }
 
 variable "labels" {
-  type    = map
+  type    = map(any)
   default = {}
 }
 

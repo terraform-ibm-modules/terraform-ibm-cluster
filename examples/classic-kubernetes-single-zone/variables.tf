@@ -138,7 +138,7 @@ variable "no_subnet" {
 
 variable "subnet_id" {
   description = "ID of an existing subnet that you want to use for your worker nodes."
-  type        = list
+  type        = list(any)
   default     = null
 }
 

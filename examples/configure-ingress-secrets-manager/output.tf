@@ -1,7 +1,7 @@
 # SM Instance
 output "ibm_sm_instance" {
-    value = ibm_container_ingress_instance.instance
-    description = "The created IBM Cloud Secrets Manager instance"
+  value       = ibm_container_ingress_instance.instance
+  description = "The created IBM Cloud Secrets Manager instance"
 }
 
 // This allows sm_secret_group data to be referenced by other resources and the terraform CLI

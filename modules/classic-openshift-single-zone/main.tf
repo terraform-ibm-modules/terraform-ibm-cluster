@@ -23,7 +23,7 @@ resource "ibm_container_cluster" "cluster" {
   tags                     = (var.tags != null ? var.tags : [])
   entitlement              = (var.entitlement != null ? var.entitlement : null)
 
-  dynamic workers_info {
+  dynamic "workers_info" {
     for_each = (var.workers_info != null ? var.workers_info : [])
     content {
       id      = (workers_info.value.id != "" ? workers_info.value.id : null)
@@ -31,7 +31,7 @@ resource "ibm_container_cluster" "cluster" {
     }
   }
 
-  dynamic kms_config {
+  dynamic "kms_config" {
     for_each = (var.kms_config != null ? var.kms_config : [])
     content {
       instance_id      = kms_config.value.instance_id
@@ -40,7 +40,7 @@ resource "ibm_container_cluster" "cluster" {
     }
   }
 
-  dynamic webhook {
+  dynamic "webhook" {
     for_each = (var.webhook != null ? var.webhook : [])
     content {
       level = webhook.value.level
@@ -49,7 +49,7 @@ resource "ibm_container_cluster" "cluster" {
     }
   }
 
-  dynamic taints {
+  dynamic "taints" {
     for_each = (var.taints != null ? var.taints : [])
     content {
       key    = taints.value.key

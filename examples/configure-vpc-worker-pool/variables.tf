@@ -29,7 +29,7 @@ variable "resource_group" {
 }
 
 variable "worker_zones" {
-  type        = map
+  type        = map(any)
   description = "List of worker zones to attach"
 }
 
@@ -40,7 +40,7 @@ variable "virtual_private_cloud" {
 
 variable "labels" {
   description = "A list of labels that you want to add to all the worker nodes in the worker pool"
-  type        = map
+  type        = map(any)
   default     = null
 }
 

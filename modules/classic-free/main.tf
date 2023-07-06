@@ -8,7 +8,7 @@ resource "ibm_container_cluster" "cluster" {
   hardware     = var.hardware
   machine_type = "free"
 
-  dynamic taints {
+  dynamic "taints" {
     for_each = (var.taints != null ? var.taints : [])
     content {
       key    = taints.value.key

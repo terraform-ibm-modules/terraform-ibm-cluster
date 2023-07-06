@@ -77,7 +77,7 @@ variable "master_service_private_endpoint" {
 
 
 variable "worker_zones" {
-  type        = map
+  type        = map(any)
   description = "List of worker zones to attach"
   default     = null
 }
@@ -150,7 +150,7 @@ variable "wait_till_albs" {
 
 variable "subnet_id" {
   description = "ID of an existing subnet that you want to use for your worker nodes."
-  type        = list
+  type        = list(any)
   default     = null
 }
 

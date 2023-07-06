@@ -20,7 +20,7 @@ resource "ibm_container_vpc_cluster" "cluster" {
   force_delete_storage            = (var.force_delete_storage != null ? var.force_delete_storage : false)
 
 
-  dynamic zones {
+  dynamic "zones" {
     for_each = (var.worker_zones != null ? var.worker_zones : {})
     content {
       name      = zones.key
@@ -28,7 +28,7 @@ resource "ibm_container_vpc_cluster" "cluster" {
     }
   }
 
-  dynamic kms_config {
+  dynamic "kms_config" {
     for_each = (var.kms_config != null ? var.kms_config : [])
     content {
       instance_id      = kms_config.value.instance_id
@@ -37,7 +37,7 @@ resource "ibm_container_vpc_cluster" "cluster" {
     }
   }
 
-  dynamic taints {
+  dynamic "taints" {
     for_each = (var.taints != null ? var.taints : [])
     content {
       key    = taints.value.key

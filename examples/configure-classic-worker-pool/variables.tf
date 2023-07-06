@@ -37,7 +37,7 @@ variable "encrypt_local_disk" {
 }
 
 variable "worker_zones" {
-  type        = map
+  type        = map(any)
   description = "List of worker zones to attach"
 }
 
@@ -48,7 +48,7 @@ variable "resource_group" {
 
 variable "labels" {
   description = "A list of labels that you want to add to all the worker nodes in the worker pool"
-  type        = map
+  type        = map(any)
   default     = null
 }
 

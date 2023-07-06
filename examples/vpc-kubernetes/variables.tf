@@ -36,7 +36,7 @@ variable "wait_till" {
 }
 
 variable "worker_zones" {
-  type        = map
+  type        = map(any)
   description = "List of worker zones to attach"
 }
 
@@ -67,7 +67,7 @@ variable "pod_subnet" {
 
 variable "worker_labels" {
   description = "Labels on all the workers in the default worker pool."
-  type        = map
+  type        = map(any)
   default     = null
 }
 

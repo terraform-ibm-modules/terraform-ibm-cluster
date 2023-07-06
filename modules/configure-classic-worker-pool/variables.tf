@@ -53,12 +53,12 @@ variable "encrypt_local_disk" {
 }
 
 variable "worker_zones" {
-  type    = map
+  type    = map(any)
   default = {}
 }
 
 variable "labels" {
-  type    = map
+  type    = map(any)
   default = {}
 }
 

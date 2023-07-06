@@ -30,8 +30,8 @@ variable "sm_secret_group_description" {
 }
 
 variable "cluster_name_or_id" {
-    description = "IBM Cloud Kubernetes Cluster id or name"
-    type        = string
+  description = "IBM Cloud Kubernetes Cluster id or name"
+  type        = string
 }
 
 variable "sm_endpoint_type" {
@@ -62,7 +62,7 @@ variable "sm_arbitrary_secret_expiration_date" {
 variable "sm_arbitrary_secret_labels" {
   description = "Labels that you can use to search for secrets in your instance. Up to 30 labels can be created."
   type        = list(string)
-  default     = [ "dev", "stage" ]
+  default     = ["dev", "stage"]
 }
 
 variable "sm_arbitrary_secret_payload" {
@@ -93,7 +93,7 @@ variable "sm_username_password_secret_expiration_date" {
 variable "sm_username_password_secret_labels" {
   description = "Labels that you can use to search for secrets in your instance.Up to 30 labels can be created."
   type        = list(string)
-  default     = [ "dev", "stage" ]
+  default     = ["dev", "stage"]
 }
 
 variable "sm_username_password_secret_username" {

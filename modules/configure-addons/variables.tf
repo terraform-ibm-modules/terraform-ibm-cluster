@@ -9,7 +9,7 @@ variable "cluster_name" {
 }
 
 variable "add_ons" {
-  type    = map
+  type    = map(any)
   default = {}
 }
 
