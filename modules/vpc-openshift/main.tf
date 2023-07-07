@@ -20,6 +20,7 @@ resource "ibm_container_vpc_cluster" "cluster" {
   cos_instance_crn                = (var.cos_instance_crn != null ? var.cos_instance_crn : null)
   force_delete_storage            = (var.force_delete_storage != null ? var.force_delete_storage : false)
   entitlement                     = (var.entitlement != null ? var.entitlement : null)
+  secondary_storage               = (var.secondary_storage != null ? var.secondary_storage : null)
 
   dynamic zones {
     for_each = (var.worker_zones != null ? var.worker_zones : {})

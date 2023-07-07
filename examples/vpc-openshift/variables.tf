@@ -29,6 +29,12 @@ variable "worker_zones" {
   description = "List of worker zones to attach"
 }
 
+varible "secondary_storage"{
+  type = string
+  description = "The flavor of the vpc worker node that you want to add secondary storage"
+  default = null
+}
+
 variable "create_timeout" {
   type        = string
   description = "Timeout duration for create."
