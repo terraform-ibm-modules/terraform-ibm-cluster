@@ -24,10 +24,10 @@ variable "kube_version" {
   default     = null
 }
 
-varible "secondary_storage"{
-  type = string
-  description = "The flavor of the vpc worker node that you want to add secondary storage"
-  default = null
+variable "secondary_storage" {
+  description = "The Kubernetes or OpenShift secondary_storage that you want to set up in your cluster."
+  type        = string
+  default     = null
 }
 
 variable "create_timeout" {

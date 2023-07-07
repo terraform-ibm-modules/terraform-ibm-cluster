@@ -28,8 +28,8 @@ module "vpc_openshift_cluster" {
   tags                            = var.tags
   cos_instance_crn                = var.cos_instance_crn
   force_delete_storage            = var.force_delete_storage
-  secondary_storage               = var.secondary_storage
   kms_config                      = var.kms_config
+  secondary_storage               = var.secondary_storage
   taints                          = var.taints
   entitlement                     = var.entitlement
   create_timeout                  = var.create_timeout
