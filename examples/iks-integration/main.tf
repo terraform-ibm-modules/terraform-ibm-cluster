@@ -18,10 +18,3 @@ module "configure_cluster_logdna" {
   private_endpoint     = var.private_endpoint
   logdna_ingestion_key = var.logging_ingestion_key
 }
-
-module "patch_monitoring" {
-  source     = "./patch-sysdig"
-  count      = var.monitoring_instance == null ? 0 : 1
-  depends_on = [module.configure_cluster_sysdig]
-  cluster    = var.cluster
-}
