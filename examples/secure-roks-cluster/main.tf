@@ -44,9 +44,3 @@ module "configure_cluster_logdna" {
   logdna_ingestion_key = var.logging_ingestion_key
 
 }
-module "patch_monitoring" {
-  source            = "./patch-sysdig"
-  depends_on        = [module.configure_cluster_sysdig]
-  cluster           = module.vpc_ocp_cluster.vpc_openshift_cluster_id
-  resource_group_id = data.ibm_resource_group.resource_group.id
-}
