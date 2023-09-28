@@ -1,15 +1,17 @@
 # IBM Clusters Terraform Module
 
+[![Community-supported](https://img.shields.io/badge/support-community-blue)](https://terraform-ibm-modules.github.io/documentation/#/badge-status)
+
 
 ---
 
-🕸️ Archived: This repo is not officially supported by any team.
+Community supported: This repo is not officially supported by any team.
 
-These repos are supported for Red Hat OpenShift VPC clusters:
+See these repos for Red Hat OpenShift VPC clusters that are supported:
 - [terraform-ibm-base-ocp-vpc](https://github.com/terraform-ibm-modules/terraform-ibm-base-ocp-vpc)
 - [terraform-ibm-ocp-all-inclusive](https://github.com/terraform-ibm-modules/terraform-ibm-ocp-all-inclusive)
 
-If you are looking for features from the open [issues](issues) in this repo, you can create a [feature request](https://github.com/terraform-ibm-modules/terraform-ibm-issue-tracker/issues/new?labels=enhancement&projects=&template=feature_request.md) in the terraform-ibm-issue-tracker repo.
+If you want to request features from the open [issues](issues) in this repo, create a [feature request](https://github.com/terraform-ibm-modules/terraform-ibm-issue-tracker/issues/new?labels=enhancement&projects=&template=feature_request.md) in the terraform-ibm-issue-tracker repo.
 
 ---
 
