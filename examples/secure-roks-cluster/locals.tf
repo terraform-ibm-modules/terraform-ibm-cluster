@@ -15,7 +15,7 @@ locals {
     private_endpoint = true
     }] : [{
     #LMA instance_id      = module.kms[0].kms_instance_guid
-    instance_id      = ibm_resource_instance.kms[0].guid
+    instance_id = ibm_resource_instance.kms[0].guid
     #LMA crk_id           = module.kms[0].kms_key_id
     crk_id           = ibm_kms_key.key.id
     private_endpoint = true
