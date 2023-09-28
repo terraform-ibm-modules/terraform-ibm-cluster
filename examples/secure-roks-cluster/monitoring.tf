@@ -13,7 +13,6 @@ module "monitoring_instance" {
   role              = "Manager"
   resource_key_tags = ["secure-roks", var.resource_prefix]
   parameters = {
-    #LMA default_receiver = true #enable for platform metrics
     default_receiver = false #enable for platform metrics
   }
 }
