@@ -25,7 +25,7 @@ resource "ibm_resource_instance" "kms" {
 }
 
 resource "ibm_kms_key" "key" {
-  instance_id  = ibm_resource_instance.kms.guid
+  instance_id  = ibm_resource_instance.kms[0].guid
   key_name     = "${var.resource_prefix}-kp-key"
   standard_key = var.standard_key_type
 }
