@@ -11,7 +11,7 @@
 resource "ibm_iam_authorization_policy" "kms_authorisation_policy" {
   count                       = var.roks_kms_policy ? 0 : 1
   source_service_name         = "containers-kubernetes"
-  source_resource_instance_id = ibm_container_vpc_cluster.iks_cluster.id
+  # source_resource_instance_id = module.vpc_ocp_cluster.id
   target_service_name         = "kms"
   roles                       = ["Reader"]
 }
