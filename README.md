@@ -11,8 +11,6 @@ See these repos for Red Hat OpenShift VPC clusters that are supported:
 - [terraform-ibm-base-ocp-vpc](https://github.com/terraform-ibm-modules/terraform-ibm-base-ocp-vpc)
 - [terraform-ibm-ocp-all-inclusive](https://github.com/terraform-ibm-modules/terraform-ibm-ocp-all-inclusive)
 
-If you want to request features from the open [issues](issues) in this repo, create a [feature request](https://github.com/terraform-ibm-modules/terraform-ibm-issue-tracker/issues/new?labels=enhancement&projects=&template=feature_request.md) in the terraform-ibm-issue-tracker repo.
-
 ---
 
 This is a collection of modules that make it easier to provision a cluster on IBM Cloud Platform:
