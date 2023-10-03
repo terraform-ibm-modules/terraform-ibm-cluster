@@ -1,5 +1,18 @@
 # IBM Clusters Terraform Module
 
+[![Community-supported](https://img.shields.io/badge/support-community-blue)](https://terraform-ibm-modules.github.io/documentation/#/badge-status)
+
+
+---
+
+Community supported: This repo is not officially supported by any team.
+
+See these repos for Red Hat OpenShift VPC clusters that are supported:
+- [terraform-ibm-base-ocp-vpc](https://github.com/terraform-ibm-modules/terraform-ibm-base-ocp-vpc)
+- [terraform-ibm-ocp-all-inclusive](https://github.com/terraform-ibm-modules/terraform-ibm-ocp-all-inclusive)
+
+---
+
 This is a collection of modules that make it easier to provision a cluster on IBM Cloud Platform:
 
 * classic-kubernetes-multi-zone-cluster
