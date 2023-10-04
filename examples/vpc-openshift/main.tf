@@ -31,6 +31,7 @@ module "vpc_openshift_cluster" {
   kms_config                      = var.kms_config
   taints                          = var.taints
   entitlement                     = var.entitlement
+  patch_version                   = var.patch_version
   create_timeout                  = var.create_timeout
   update_timeout                  = var.update_timeout
   delete_timeout                  = var.delete_timeout

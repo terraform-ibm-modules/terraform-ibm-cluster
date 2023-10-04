@@ -33,6 +33,7 @@ module "vpc_openshift_cluster" {
   kms_config                      = var.kms_config
   taints                          = var.taints
   entitlement                     = var.entitlement
+  patch_version                   = var.patch_version
   create_timeout                  = var.create_timeout
   update_timeout                  = var.update_timeout
   delete_timeout                  = var.delete_timeout
@@ -68,7 +69,7 @@ If we want to make use of a particular version of module, then set the "version"
 | update_timeout                    | Timeout duration for update                             | string | n/a         | no       |
 | delete_timeout                    | Timeout duration for delete                             | string | n/a         | no       |
 | taints                            |A nested block that sets or removes Kubernetes taints for all worker nodes in a worker pool|list(string)| n/a  | no  |
-
+| patch\_version                     | Updates the worker nodes with the required patch version| string | n/a         | no       |
 
 
 ## taints Inputs
