@@ -24,6 +24,12 @@ variable "kube_version" {
   default     = null
 }
 
+variable "secondary_storage" {
+  description = "The Kubernetes or OpenShift secondary_storage that you want to set up in your cluster."
+  type        = string
+  default     = null
+}
+
 variable "create_timeout" {
   type        = string
   description = "Timeout duration for create."
