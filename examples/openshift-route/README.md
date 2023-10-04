@@ -9,11 +9,6 @@ This module is used to provision a route to an openshift cluster. An [OpenShift 
 provider "ibm" {
 }
 
-locals {
-    # get json
-    data = jsondecode(var.route_data)
-}
-
 data "ibm_satellite_cluster" "cluster" {
   name  = var.cluster
 }
@@ -30,7 +25,7 @@ module "openshift_cluster_route" {
 
 ## Note
 
-* To update a openshift route, users has to get the "resourceVersion" parameter value from terraform.tfstate or openshift console file, And add it to 'route_data' variable as a route specification.
+* To update a openshift route, users has to get the "resourceVersion" parameter value from terraform.tfstate or openshift console, And add it to 'route_data' variable as a route specification.
 
 ``` Route Specfication
 {
