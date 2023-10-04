@@ -40,7 +40,7 @@ variable "flavor" {
 variable "ocp_version" {
   type        = string
   description = "Specify the Openshift version"
-  default     = "4.6_openshift"
+  default     = "4.13_openshift"
 }
 variable "ocp_entitlement" {
   type        = string

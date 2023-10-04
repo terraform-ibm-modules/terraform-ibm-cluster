@@ -14,8 +14,8 @@ locals {
     crk_id           = var.kms_key
     private_endpoint = true
     }] : [{
-    instance_id      = module.kms[0].kms_instance_guid
-    crk_id           = module.kms[0].kms_key_id
+    instance_id = ibm_resource_instance.kms[0].guid
+    crk_id           = ibm_kms_key.key.id
     private_endpoint = true
   }]
   timeouts = [{
